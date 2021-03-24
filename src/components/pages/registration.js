@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+// import { Redirect } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../redux/registration/registationActions';
 
 const Registration = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.registrationReducer);
   const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('gender');
@@ -26,16 +31,22 @@ const Registration = () => {
     return null;
   };
 
+  const resetValues = () => {
+    setFullName('');
+    setEmail('');
+    setGender('');
+    setAge('');
+    setPassword('');
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const final = {
-      fullname,
-      email,
-      gender,
-      age,
-      password,
+    const user = {
+      fullname, email, gender, age, password,
     };
-    console.log(final);
+    dispatch(register(user));
+    resetValues();
+    console.log(state);
   };
   const genders = ['masculine', 'feminine'];
   return (

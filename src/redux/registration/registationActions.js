@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { REGISTRATION_SUCCESS, REGISTER_FAILURE } from './registrationActTypes';
 
 const config = {
   headers: {
@@ -7,24 +8,24 @@ const config = {
 };
 
 const registerSuccess = (data) => ({
-  type: 'REGISTER_SUCCESS',
+  type: REGISTRATION_SUCCESS,
   payload: data,
 });
 const registerFailure = (data) => ({
-  type: 'REGISTER_FAILURE',
+  type: REGISTER_FAILURE,
   payload: data,
 });
 
-const register = () => async (dispatch) => {
+const register = (user) => async (dispatch) => {
   const url = 'https://mother-child-api.herokuapp.com/api/v1/users';
   try {
     const response = await axios({
       method: 'POST',
       url,
-      data: {
-      },
+      data: user,
       config,
     });
+
     return dispatch(registerSuccess(response.data));
   } catch (e) {
     return dispatch(registerFailure(e));
