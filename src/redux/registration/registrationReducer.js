@@ -7,7 +7,7 @@ const initial = {
 const registrationReducer = (state = initial, action) => {
   switch (action.type) {
     case REGISTRATION_SUCCESS:
-      return { ...state, user: action.payload };
+      return { ...state, errors: false, user: action.payload };
     case REGISTER_FAILURE:
       return { ...state, errors: true };
     default:
