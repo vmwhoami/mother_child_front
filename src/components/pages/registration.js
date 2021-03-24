@@ -46,7 +46,6 @@ const Registration = () => {
     };
     dispatch(register(user));
     resetValues();
-    console.log(state);
   };
   const genders = ['masculine', 'feminine'];
   return (
@@ -82,6 +81,8 @@ const Registration = () => {
         </label>
         <button type="submit">Register</button>
       </form>
+      {state.errors ? <h1 style={{ color: 'red' }}>Error Registering</h1> : null}
+      {state.user ? <h1 style={{ color: 'green' }}>Registered successfully</h1> : null}
     </div>
   );
 };
