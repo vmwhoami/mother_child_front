@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from '../pages/Home';
-import Book from '../pages/BookAppointmen';
-import Nav from './Nav';
-import Errorpage from '../pages/Errorpage';
-// import css from '../css/App.module.css';
+import Home from './pages/Home';
+import Book from './pages/BookAppointmen';
+import Errorpage from './pages/Errorpage';
 
 function App() {
   return (
     <BrowserRouter>
-      <Nav />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/book" component={Book} />

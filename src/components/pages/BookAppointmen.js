@@ -1,9 +1,10 @@
 import React from 'react';
+import Layout from '../Layout';
 
 const BookAppointmen = () => (
-  <div>
+  <Layout>
     <h1>BookAppointmen</h1>
-  </div>
+  </Layout>
 );
 
 export default BookAppointmen;
