@@ -19,18 +19,21 @@ const loginFailure = (error) => ({
 
 const login = (credentials) => async (dispatch) => {
   const url = 'https://mother-child-api.herokuapp.com/api/v1/login';
-  try {
-    const response = await axios({
-      method: 'POST',
-      url,
-      data: credentials,
-      config,
-    });
-    localStorage.setItem('token', response.data.toke);
+  axios({
+    method: 'POST',
+    url,
+    data: credentials,
+    config,
+  }).then((response) => {
+    const { failure } = response.data;
+    if (failure) {
+      return dispatch(loginFailure(response.data));
+    }
     return dispatch(loginSuccess(response.data));
-  } catch (e) {
-    return dispatch(loginFailure(e));
-  }
+  })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 export { login, loginSuccess, loginFailure };

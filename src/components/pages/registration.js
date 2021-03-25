@@ -83,14 +83,14 @@ const Registration = () => {
         </label>
 
         <label htmlFor="password">
-          Passoword
+          Password
           <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
         </label>
         <button type="submit">Register</button>
       </form>
       {state.errors.length > 0 ? <ErrorHandler errors={state.errors} /> : null}
 
-      {state.user ? <SuccessHandler /> : null}
+      {state.user ? <SuccessHandler message="Registration" /> : null}
     </div>
   );
 };
