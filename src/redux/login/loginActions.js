@@ -29,6 +29,7 @@ const login = (credentials) => async (dispatch) => {
     if (failure) {
       return dispatch(loginFailure(response.data));
     }
+    localStorage.setItem('token', response.data.jwt)
     return dispatch(loginSuccess(response.data));
   })
     .catch((err) => {
