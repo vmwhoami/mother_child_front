@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import Nav from './comp/Nav';
-import Footer from './comp/Footer';
-import { autoLogin, logout } from '../redux/login/loginActions';
+import { autoLogin } from '../redux/login/loginActions';
+import css from '../css/layout.module.css';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
@@ -14,13 +14,10 @@ const Layout = ({ children }) => {
   }, [state.loggedIn]);
 
   return (
-    <>
+    <div className={css.container}>
       <Nav />
       {children}
-      <Footer />
-      {state.loggedIn ? <button type="button" onClick={() => dispatch(logout())}>Logout</button>
-        : <button type="button" onClick={() => dispatch(logout())}>Login</button>}
-    </>
+    </div>
   );
 };
 
