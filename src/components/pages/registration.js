@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/registration/registationActions';
+import { register, clearErrors } from '../../redux/registration/registationActions';
+import ErrorHandler from '../comp/ErrorHandler';
+import SuccessHandler from '../comp/SuccessHandler';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -11,7 +13,7 @@ const Registration = () => {
   const [gender, setGender] = useState('gender');
   const [age, setAge] = useState(0);
   const [password, setPassword] = useState('');
-
+  const clearErr = () => dispatch(clearErrors());
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
@@ -31,6 +33,11 @@ const Registration = () => {
     return null;
   };
 
+  useEffect(() => {
+    if (state.user) {
+      clearErr();
+    }
+  }, [state.user]);
   const resetValues = () => {
     setFullName('');
     setEmail('');
@@ -81,8 +88,9 @@ const Registration = () => {
         </label>
         <button type="submit">Register</button>
       </form>
-      {state.errors ? <h1 style={{ color: 'red' }}>Error Registering</h1> : null}
-      {state.user ? <h1 style={{ color: 'green' }}>Registered successfully</h1> : null}
+      {state.errors.length > 0 ? <ErrorHandler errors={state.errors} /> : null}
+
+      {state.user ? <SuccessHandler /> : null}
     </div>
   );
 };

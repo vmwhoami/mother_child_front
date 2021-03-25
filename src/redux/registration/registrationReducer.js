@@ -1,15 +1,17 @@
-import { REGISTRATION_SUCCESS, REGISTER_FAILURE } from './registrationActTypes';
+import { REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS } from './registrationActTypes';
 
 const initial = {
   user: null,
-  errors: false,
+  errors: [],
 };
 const registrationReducer = (state = initial, action) => {
   switch (action.type) {
     case REGISTRATION_SUCCESS:
-      return { ...state, errors: false, user: action.payload };
+      return { ...state, user: action.payload };
     case REGISTER_FAILURE:
-      return { ...state, errors: true };
+      return { ...state, errors: action.payload };
+    case CLEAR_ERRORS:
+      return { ...state, errors: [] };
     default:
       return state;
   }
