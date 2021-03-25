@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Book from './pages/BookAppointmen';
 import Errorpage from './pages/Errorpage';
+import Appointments from './pages/Appointments';
+import Registration from './pages/registration';
+import Login from './pages/login';
 
 function App() {
   return (
@@ -10,10 +13,13 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/book" component={Book} />
-        {/* <Route path="/:id">
+
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Registration} />
+        <Route path="/:id">
           {' '}
-          <CryptoInfo />
-        </Route> */}
+          <Appointments />
+        </Route>
 
         <Route path="*" component={Errorpage} />
       </Switch>

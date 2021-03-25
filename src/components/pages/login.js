@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/login/loginActions';
 import SuccessHandler from '../comp/SuccessHandler';
 import ErrorHandler from '../comp/ErrorHandler';
+import Layout from '../Layout';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -36,23 +37,24 @@ const Login = () => {
     resetValues();
   };
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor="email">
-          Email
-          <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
-        </label>
-        <label htmlFor="password">
-          Password
-          <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}
+    <Layout>
+      <div>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <label htmlFor="email">
+            Email
+            <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
+          </label>
+          <label htmlFor="password">
+            Password
+            <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
+          </label>
+          <button type="submit">Login</button>
+        </form>
+        {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}
 
-      {state.user ? <SuccessHandler message="Login" /> : null}
-    </div>
-
+        {state.user ? <SuccessHandler message="Login" /> : null}
+      </div>
+    </Layout>
   );
 };
 export default Login;
