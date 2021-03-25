@@ -36,4 +36,6 @@ const login = (credentials) => async (dispatch) => {
     });
 };
 
-export { login, loginSuccess, loginFailure };
+export {
+  login, loginSuccess, loginFailure,
+};

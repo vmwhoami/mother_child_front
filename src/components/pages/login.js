@@ -9,6 +9,7 @@ const Login = () => {
   const state = useSelector((state) => state.loginReducer);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
@@ -21,6 +22,7 @@ const Login = () => {
     }
     return null;
   };
+
   const resetValues = () => {
     setEmail('');
     setPassword('');
@@ -46,7 +48,7 @@ const Login = () => {
         </label>
         <button type="submit">Login</button>
       </form>
-      {state.failure ? <ErrorHandler errors={[state.failure.failure]} /> : null}
+      {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}
 
       {state.user ? <SuccessHandler message="Login" /> : null}
     </div>
