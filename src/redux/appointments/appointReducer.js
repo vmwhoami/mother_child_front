@@ -1,5 +1,6 @@
 import {
   GET_APT_SUCCESS, GET_APT_FAIL, MAKE_APT_SUCCESS, MAKE_APT_FAIL,
+  DELET_APT,
 } from './appointActTypes';
 
 const init = {
@@ -18,7 +19,8 @@ const appointReducer = (state = init, action) => {
       return { ...state, message: action.payload, error: false };
     case MAKE_APT_FAIL:
       return { ...state, message: action.payload, error: true };
-
+    case DELET_APT:
+      return { ...state, message: action.payload, error: false };
     default:
       return state;
   }
