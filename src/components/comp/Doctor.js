@@ -5,11 +5,13 @@ import css from '../../css/doctors.module.css';
 const Doctor = ({ doctor }) => {
   const { name, title, img } = doctor;
   return (
-    <div className={css.doctor}>
-      <img src={img} alt="name" />
-      <h2>{name}</h2>
-      <p>{title}</p>
-      <button type="button">Book an appointments</button>
+    <div className={css.container}>
+      <div className={css.doctor}>
+        <img src={img} alt={name} />
+        <h2>{name}</h2>
+        <p>{title}</p>
+        <button type="button">Book an appointments</button>
+      </div>
     </div>
   );
 };

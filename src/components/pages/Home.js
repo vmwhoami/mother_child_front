@@ -9,7 +9,8 @@ const Home = () => {
     <Layout>
       <h1>Our doctors</h1>
       <div className="doctors">
-        {state.doctors.map((doctor) => <Doctor key={doctor.id} doctor={doctor} />)}
+        {state.doctors.filter((doc) => doc)
+          .map((doctor) => <Doctor key={doctor.id} doctor={doctor} />)}
       </div>
     </Layout>
   );

@@ -37,15 +37,14 @@ code {
 
 
 #root{
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  justify-content: center;
+  height: 100vh;
 }
 
 .navigation{
-
   height: 100vh;
   width: 15vw;
   position: absolute;
@@ -61,8 +60,7 @@ code {
 
 }
 
-
-.container .active{
+.navigation .active{
 left: 0;
 transition: 350ms;
 }
@@ -82,4 +80,12 @@ nav a{
 .footer{
  margin-top: auto;
  margin-bottom: 3vh;
+}
+
+.doctors{
+  width: 60vw;
+  height: 50vh;
+  display: flex;
+  /* overflow: hidden; */
+  margin-top:20px;
 }
