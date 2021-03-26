@@ -34,12 +34,20 @@ code {
     'Courier New',
     monospace;
 }
+
+
+#root{
+  display: flex;
+  justify-content: center;
+}
+
 .navigation{
 
   height: 100vh;
   width: 15vw;
-  position: fixed;
+  position: absolute;
   top: 0;
+  left:0;
   /* left:-100% ; */
   display: flex;
   flex-direction: column;

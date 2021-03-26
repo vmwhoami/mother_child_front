@@ -4,23 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import Nav from './comp/Nav';
 import { autoLogin } from '../redux/login/loginActions';
 import { getDoctors } from '../redux/doctors/doctorActions';
-import css from '../css/layout.module.css';
+// import css from '../css/layout.module.css';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.loginReducer);
   useEffect(() => {
-    dispatch(getDoctors());
-  }, []);
-  useEffect(() => {
     dispatch(autoLogin());
   }, [state.loggedIn]);
 
+  useEffect(() => {
+    dispatch(getDoctors());
+  }, []);
+
   return (
-    <div className={css.container}>
+    <>
       <Nav />
       {children}
-    </div>
+    </>
   );
 };
 
