@@ -15,7 +15,7 @@ const Nav = () => {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/book">Bookappointment</Link>
-        <Link to="/appointments">My appointments</Link>
+        {loggedIn ? <Link to="/appointments">My appointments</Link> : <Link to="/register">Register</Link>}
         {!loggedIn ? <Link to="/login">Login</Link>
           : (
             <Link
@@ -25,7 +25,7 @@ const Nav = () => {
               Logout
             </Link>
           )}
-        {loggedIn ? null : <Link to="/register">Register</Link>}
+
       </nav>
       <Footer />
     </div>
