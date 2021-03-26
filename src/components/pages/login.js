@@ -4,6 +4,7 @@ import { login } from '../../redux/login/loginActions';
 import SuccessHandler from '../comp/SuccessHandler';
 import ErrorHandler from '../comp/ErrorHandler';
 import Layout from '../Layout';
+import css from '../../css/logreg.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -38,7 +39,7 @@ const Login = () => {
   };
   return (
     <Layout>
-      <div>
+      <div className={css.container}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <label htmlFor="email">
             Email

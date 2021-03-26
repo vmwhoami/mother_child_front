@@ -4,7 +4,7 @@ import Footer from './Footer';
 import css from '../../css/nav.module.css';
 
 const Nav = () => (
-  <div className={css.container}>
+  <div className="navigation">
     <div className={css.logo} />
     <nav>
       <Link to="/">Home</Link>
