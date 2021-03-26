@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { login } from '../../redux/login/loginActions';
 import SuccessHandler from '../comp/SuccessHandler';
 import ErrorHandler from '../comp/ErrorHandler';
@@ -9,6 +10,7 @@ import css from '../../css/logreg.module.css';
 const Login = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.loginReducer);
+  const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -37,6 +39,9 @@ const Login = () => {
     dispatch(login(user));
     resetValues();
   };
+  if (loggedIn) {
+    return <Redirect to="/" />;
+  }
   return (
     <Layout>
       <div className={css.container}>

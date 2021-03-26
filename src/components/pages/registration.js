@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-// import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { register, clearErrors } from '../../redux/registration/registationActions';
 import ErrorHandler from '../comp/ErrorHandler';
 import SuccessHandler from '../comp/SuccessHandler';
@@ -9,6 +9,7 @@ import Layout from '../Layout';
 const Registration = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.registrationReducer);
+  const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('gender');
@@ -56,6 +57,10 @@ const Registration = () => {
     resetValues();
   };
   const genders = ['masculine', 'feminine'];
+
+  if (loggedIn) {
+    return <Redirect to="/" />;
+  }
   return (
     <Layout>
       <div>
