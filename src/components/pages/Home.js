@@ -7,7 +7,10 @@ const Home = () => {
   const state = useSelector((state) => state.doctorReducer);
   return (
     <Layout>
-      {state.doctors.map((doctor) => <Doctor key={doctor.id} doctor={doctor} />)}
+      <h1>Our doctors</h1>
+      <div className="doctors">
+        {state.doctors.map((doctor) => <Doctor key={doctor.id} doctor={doctor} />)}
+      </div>
     </Layout>
   );
 };
