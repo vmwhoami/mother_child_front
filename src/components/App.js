@@ -13,12 +13,12 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/book" component={Book} />
-
+        <Route path="/myAppointment" component={Appointments} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Registration} />
         <Route path="/:id">
           {' '}
-          <Appointments />
+          <Book />
         </Route>
 
         <Route path="*" component={Errorpage} />

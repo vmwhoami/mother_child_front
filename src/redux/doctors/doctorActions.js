@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { DOCTORS_SUCCESS, DOCTORS_FAILURE } from './doctorActTypes';
+import { DOCTORS_SUCCESS, DOCTORS_FAILURE, SELECTED_DOCTOR } from './doctorActTypes';
+
+const selectedDoc = (id) => ({
+  type: SELECTED_DOCTOR,
+  payload: id,
+});
 
 const getDoctorsSuccess = (doctors) => ({
   type: DOCTORS_SUCCESS,
@@ -15,4 +20,6 @@ const getDoctors = () => async (dispatch) => {
     .catch(() => dispatch(getDoctorsFailure()));
 };
 
-export { getDoctors, getDoctorsSuccess, getDoctorsFailure };
+export {
+  getDoctors, getDoctorsSuccess, getDoctorsFailure, selectedDoc,
+};
