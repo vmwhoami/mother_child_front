@@ -5,12 +5,13 @@ import { deletAppoint } from '../../redux/appointments/appointActions';
 
 const Appoint = ({ appoint, doctors, deletAppoint }) => {
   const { id, doctor_id: doctorId, date_time: date } = appoint;
-  const { name, title } = doctors.find((doctor) => doctor.id === doctorId);
+  console.log(doctorId);
+  console.log(doctors);
 
   return (
     <div>
-      <span>{name}</span>
-      <span>{title}</span>
+      {/* <span>{name}</span>
+      <span>{title}</span> */}
       <span>{date}</span>
       <button type="button" onClick={() => deletAppoint({ id })}>Cancel</button>
     </div>
@@ -24,7 +25,6 @@ Appoint.propTypes = {
 };
 const mapStateToProps = (state) => ({
   doctors: state.doctorReducer.doctors,
-  appoints: state.appointReducer.myAppoint,
 });
 
 const mapDispatchToProps = (dispatch) => ({
