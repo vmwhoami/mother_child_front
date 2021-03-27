@@ -20,7 +20,9 @@ const appointReducer = (state = init, action) => {
     case MAKE_APT_FAIL:
       return { ...state, message: action.payload, error: true };
     case DELET_APT:
-      return { ...state, message: action.payload, error: false };
+      return {
+        ...state, message: action.payload, error: false,
+      };
     default:
       return state;
   }

@@ -1,28 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getAllMyAppoint, deletAppoint } from '../../redux/appointments/appointActions';
+import { getAllMyAppoint } from '../../redux/appointments/appointActions';
 
 import Layout from '../Layout';
 import Appoint from '../container/Appoint';
 
 const Appointments = ({
-  user, appoints, getAllMyAppoint, deletAppoint,
+  user, appoints, getAllMyAppoint,
 }) => {
+  const { myAppoint } = appoints;
+  const [apptsArr, setApts] = useState([myAppoint])
+
   useEffect(() => {
     if (user) {
       const u = { user: user.id };
       getAllMyAppoint(u);
     }
-  }, [user]);
-  const deletAppt = (id) => deletAppoint(id);
+  }, [myAppoint]);
+  if (Object.keys(myAppoint).length === 0) {
+    return null;
+  }
+
   return (
     <Layout>
-      {appoints.map((appoint) => (
+      {myAppoint.map((appoint) => (
         <Appoint
           key={appoint.id}
           appoint={appoint}
-          deletAppt={deletAppt}
+
         />
       ))}
     </Layout>
@@ -31,7 +37,7 @@ const Appointments = ({
 
 const mapStateToProps = (state) => ({
   user: state.loginReducer.user,
-  appoints: state.appointReducer.myAppoint,
+  appoints: state.appointReducer,
 
 });
 
@@ -40,18 +46,17 @@ const mapDispatchToProps = (dispatch) => ({
   getAllMyAppoint: (user) => {
     dispatch(getAllMyAppoint(user));
   },
-  deletAppoint: (id) => {
-    dispatch(deletAppoint(id));
-  },
+
 });
 
 Appointments.defaultProps = {
-  user: {},
+  user: [],
+
 };
 Appointments.propTypes = {
   user: PropTypes.instanceOf(Object),
   getAllMyAppoint: PropTypes.func.isRequired,
-  appoints: PropTypes.instanceOf(Array).isRequired,
-  deletAppoint: PropTypes.func.isRequired,
+  appoints: PropTypes.instanceOf(Object).isRequired,
+
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Appointments);
