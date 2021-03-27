@@ -1,6 +1,6 @@
 import {
-  GET_APT_SUCCESS, GET_APT_FAIL, MAKE_APT_SUCCESS, MAKE_APT_FAIL,
-  DELET_APT, DEL_FROM_REDUX,
+  GET_APT_SUCCESS, GET_APT_FAIL, MAKE_APT_SUCCESS, MAKE_APT_FAIL, DELL_SUCCESS,
+  DEL_FROM_REDUX,
 } from './appointActTypes';
 
 const init = {
@@ -22,15 +22,14 @@ const appointReducer = (state = init, action) => {
       return { ...state, message: action.payload, error: false };
     case MAKE_APT_FAIL:
       return { ...state, message: action.payload, error: false };
-    case DELET_APT:
-      return {
-        ...state, myAppoint: [...state.myAppoint], message: action.payload, error: true,
-      };
     case DEL_FROM_REDUX:
       return {
-        ...state, myAppoint: state.myAppoint
+        ...state,
+        myAppoint: state.myAppoint
           .filter((appoint) => appoint.id !== action.payload.id),
       };
+    case DELL_SUCCESS:
+      return { ...state, message: action.payload.success };
     default:
       return state;
   }

@@ -9,21 +9,21 @@ import { getAllMyAppoint } from '../redux/appointments/appointActions';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.loginReducer);
+  const user = useSelector((state) => state.loginReducer);
   useEffect(() => {
     dispatch(autoLogin());
-  }, [state.loggedIn]);
+  }, [user.loggedIn]);
 
   useEffect(() => {
     dispatch(getDoctors());
   }, []);
 
   useEffect(() => {
-    if (state.loggedIn) {
-      const user = { user: state.user.id };
-      dispatch(getAllMyAppoint(user));
+    if (user.loggedIn) {
+      const appointment = { user: user.user.id };
+      dispatch(getAllMyAppoint(appointment));
     }
-  }, [state.loggedIn]);
+  }, [user.user]);
 
   return (
     <>

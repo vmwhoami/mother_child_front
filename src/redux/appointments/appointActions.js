@@ -1,9 +1,12 @@
 import axios from 'axios';
 import {
-  GET_APT_SUCCESS, GET_APT_FAIL, DELET_APT, DEL_FROM_REDUX,
+  GET_APT_SUCCESS, GET_APT_FAIL, DEL_FROM_REDUX, DELL_SUCCESS,
 } from './appointActTypes';
 
-// , MAKE_APT_SUCCESS, MAKE_APT_FAIL
+const token = localStorage.getItem('token');
+const url = 'https://mother-child-api.herokuapp.com/api/v1/';
+const auth = { Authorization: `Bearer ${token}` };
+
 const gotAppointFail = (err) => ({
   type: GET_APT_FAIL,
   payload: err,
@@ -14,18 +17,16 @@ const gotAppointSuccess = (data) => ({
   payload: data,
 });
 
-const deleteSuccess = (data) => ({
-  DELET_APT,
-  payload: data,
-});
-
 const delAppoinFromRedux = (id) => ({
   type: DEL_FROM_REDUX,
   payload: id,
 });
-const token = localStorage.getItem('token');
-const url = 'https://mother-child-api.herokuapp.com/api/v1/';
-const auth = { Authorization: `Bearer ${token}` };
+
+const deleteSuccess = (data) => ({
+  type: DELL_SUCCESS,
+  payload: data,
+});
+
 const getAllMyAppoint = (data) => async (dispatch) => {
   axios.post(`${url}myappointmets`, data, {
     headers: auth,
@@ -37,10 +38,10 @@ const getAllMyAppoint = (data) => async (dispatch) => {
 const deletAppoint = (data) => async (dispatch) => {
   axios.delete(`${url}appointmets`, { data, headers: auth })
     .then((response) => {
+      console.log(response.data);
       dispatch(deleteSuccess(response.data));
     }).catch((err) => dispatch(gotAppointFail(err)));
 };
-
 export {
   getAllMyAppoint, gotAppointSuccess, gotAppointFail, deletAppoint, delAppoinFromRedux,
 };
