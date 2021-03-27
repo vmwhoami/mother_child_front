@@ -38,7 +38,6 @@ const getAllMyAppoint = (data) => async (dispatch) => {
 const deletAppoint = (data) => async (dispatch) => {
   axios.delete(`${url}appointmets`, { data, headers: auth })
     .then((response) => {
-      console.log(response.data);
       dispatch(deleteSuccess(response.data));
     }).catch((err) => dispatch(gotAppointFail(err)));
 };

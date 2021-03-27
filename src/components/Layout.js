@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Nav from './comp/Nav';
 import { autoLogin } from '../redux/login/loginActions';
 import { getDoctors } from '../redux/doctors/doctorActions';
-import { getAllMyAppoint } from '../redux/appointments/appointActions';
+
 // import css from '../css/layout.module.css';
 
 const Layout = ({ children }) => {
@@ -17,13 +17,6 @@ const Layout = ({ children }) => {
   useEffect(() => {
     dispatch(getDoctors());
   }, []);
-
-  useEffect(() => {
-    if (user.loggedIn) {
-      const appointment = { user: user.user.id };
-      dispatch(getAllMyAppoint(appointment));
-    }
-  }, [user.user]);
 
   return (
     <>
