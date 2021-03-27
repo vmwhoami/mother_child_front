@@ -28,8 +28,8 @@ const appointReducer = (state = init, action) => {
       };
     case DEL_FROM_REDUX:
       return {
-        myAppoint: [state.myAppoint
-          .filter((appoint) => appoint.id !== action.payload.id)],
+        ...state, myAppoint: state.myAppoint
+          .filter((appoint) => appoint.id !== action.payload.id),
       };
     default:
       return state;
