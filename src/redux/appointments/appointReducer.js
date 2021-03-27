@@ -14,7 +14,7 @@ const appointReducer = (state = init, action) => {
   switch (action.type) {
     case GET_APT_SUCCESS:
       return {
-        ...state, myAppoint: [...state.myAppoint, action.payload], error: false, loading: false,
+        ...state, myAppoint: action.payload, error: false, loading: false,
       };
     case GET_APT_FAIL:
       return { ...state, error: true };
@@ -23,13 +23,13 @@ const appointReducer = (state = init, action) => {
     case MAKE_APT_FAIL:
       return { ...state, message: action.payload, error: false };
     case DELET_APT:
-      return { ...state, message: action.payload, error: true };
-    case DEL_FROM_REDUX:
-
       return {
-        ...state,
-        myAppoint: state.myAppoint
-          .filter((appoint) => appoint.id !== action.payload.id),
+        ...state, myAppoint: [...state.myAppoint], message: action.payload, error: true,
+      };
+    case DEL_FROM_REDUX:
+      return {
+        myAppoint: [state.myAppoint
+          .filter((appoint) => appoint.id !== action.payload.id)],
       };
     default:
       return state;

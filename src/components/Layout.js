@@ -21,7 +21,6 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (state.loggedIn) {
       const user = { user: state.user.id };
-      console.log(user);
       dispatch(getAllMyAppoint(user));
     }
   }, [state.loggedIn]);
