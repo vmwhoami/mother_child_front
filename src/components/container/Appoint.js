@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deletAppoint } from '../../redux/appointments/appointActions';
+import { delAppoinFromRedux } from '../../redux/appointments/appointActions';
 
-const Appoint = ({ appoint, doctors, deletAppoint }) => {
+const Appoint = ({ appoint, doctors, delAppoinFromRedux }) => {
   const { id, doctor_id: doctorId, date_time: date } = appoint;
   console.log(doctorId);
   console.log(doctors);
@@ -13,7 +13,7 @@ const Appoint = ({ appoint, doctors, deletAppoint }) => {
       {/* <span>{name}</span>
       <span>{title}</span> */}
       <span>{date}</span>
-      <button type="button" onClick={() => deletAppoint({ id })}>Cancel</button>
+      <button type="button" onClick={() => delAppoinFromRedux({ id })}>Cancel</button>
     </div>
   );
 };
@@ -21,7 +21,7 @@ const Appoint = ({ appoint, doctors, deletAppoint }) => {
 Appoint.propTypes = {
   appoint: PropTypes.instanceOf(Object).isRequired,
   doctors: PropTypes.instanceOf(Array).isRequired,
-  deletAppoint: PropTypes.func.isRequired,
+  delAppoinFromRedux: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   doctors: state.doctorReducer.doctors,
@@ -29,8 +29,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
 
-  deletAppoint: (id) => {
-    dispatch(deletAppoint(id));
+  delAppoinFromRedux: (id) => {
+    dispatch(delAppoinFromRedux(id));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Appoint);
