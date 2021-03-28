@@ -20,7 +20,6 @@ const BookAppointmen = () => {
   } = doctor;
   const createAppointment = () => {
     const appointment = { user: user.user.id, doctor: id, time: startDate };
-    console.log(appointment);
     dispatch(bookAnAppointment(appointment));
   };
 
