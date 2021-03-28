@@ -20,7 +20,7 @@ const Nav = () => {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/book">Bookappointment</Link>
-        {loggedIn ? <Link to="/appointments" onClick={getAppointments}>My appointments</Link> : <Link to="/register">Register</Link>}
+        {loggedIn ? <Link to="/myAppointment" onClick={getAppointments}>My appointments</Link> : <Link to="/register">Register</Link>}
         {!loggedIn ? <Link to="/login">Login</Link>
           : (
             <Link
