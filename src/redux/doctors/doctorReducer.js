@@ -13,7 +13,8 @@ const doctorReducer = (state = initial, action) => {
     case DOCTORS_FAILURE:
       return { ...state, errors: true, loading: false };
     case SELECTED_DOCTOR:
-      return { ...state, selected: state.doctors.find((doc) => doc.id === action.payload.id) };
+
+      return { ...state, selected: state.doctors.filter((doc) => doc.id === action.payload)[0] };
     default:
       return state;
   }

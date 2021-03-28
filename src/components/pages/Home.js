@@ -9,7 +9,9 @@ const Home = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.doctorReducer);
   const { loading } = state;
-  const selectDoc = (id) => dispatch(selectedDoc(id));
+  const selectDoc = (id) => {
+    dispatch(selectedDoc(id));
+  };
   return (
     <Layout>
       <h1>Our doctors</h1>
