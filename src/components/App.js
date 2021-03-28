@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
-import Book from './pages/BookAppointmen';
+import BookAppointmen from './pages/BookAppointmen';
 import Errorpage from './pages/Errorpage';
 import Appointments from './pages/Appointments';
 import Registration from './pages/registration';
@@ -12,13 +12,13 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/book" component={Book} />
+        <Route path="/book" component={BookAppointmen} />
         <Route path="/myAppointment" component={Appointments} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Registration} />
         <Route path="/:id">
           {' '}
-          <Book />
+          <BookAppointmen />
         </Route>
 
         <Route path="*" component={Errorpage} />

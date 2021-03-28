@@ -1,0 +1,34 @@
+.article{
+  align-self: flex-end;
+  margin-right: 50px;
+  width: 70vw;
+  height: 80vh;
+ 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container{
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+ .imgcont{
+   width: 100vw;
+  height: 60vh;
+ }
+
+ .imgcont img{
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+ }
+
+ .aside{
+   width:45vw;
+   margin:0 50px 0 50px;
+ }

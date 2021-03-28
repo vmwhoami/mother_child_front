@@ -5,6 +5,7 @@ const Loading = () => {
   const heart = { color: '#000fff' };
   return (
     <div>
+      <span>Loading ...</span>
       <Heart color={heart.color} />
       {' '}
       :
