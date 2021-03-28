@@ -1,19 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Layout from '../Layout';
+import { bookAnAppointment } from '../../redux/appointments/appointActions';
 import css from '../../css/bookAppointmen.module.css';
-// useDispatch
+
 const BookAppointmen = () => {
   const doctor = useSelector((state) => state.doctorReducer.selected);
   const user = useSelector((state) => state.loginReducer);
-  // const dispatch = useDispatch();
+  const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
 
   const { loggedIn } = user;
 
   const {
     id, name, title, info, room, recieving_hours: hours, img,
   } = doctor;
+  const createAppointment = () => {
+    const appointment = { user: user.user.id, doctor: id, time: startDate };
+    console.log(appointment);
+    dispatch(bookAnAppointment(appointment));
+  };
 
   if (!loggedIn) {
     return <Redirect to="/login" />;
@@ -49,10 +58,10 @@ const BookAppointmen = () => {
               Receiving hours
               {hours}
             </p>
-            <form>
-              <input type="text" />
-              <button type="submit">Book now</button>
-            </form>
+
+            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+            <button type="submit" onClick={() => createAppointment()}>Book now</button>
+
           </aside>
         </div>
       </article>

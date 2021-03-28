@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import { delAppoinFromRedux, deletAppoint } from '../../redux/appointments/appointActions';
 
@@ -9,6 +10,7 @@ const Appoint = ({
   const {
     id, doctor_id: doctorId, date_time: date,
   } = appoint;
+
   const doctor = doctors.find((doctor) => doctor.id === doctorId);
   const { name, title } = doctor;
 
@@ -21,6 +23,7 @@ const Appoint = ({
       <span>{name}</span>
       <span>{title}</span>
       <span>{date}</span>
+
       <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
     </div>
   );

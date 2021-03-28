@@ -1,6 +1,11 @@
 import {
-  GET_APT_SUCCESS, GET_APT_FAIL, MAKE_APT_SUCCESS, MAKE_APT_FAIL, DELL_SUCCESS,
+  GET_APT_SUCCESS,
+  GET_APT_FAIL,
+  MAKE_APT_SUCCESS,
+  MAKE_APT_FAIL,
+  DELL_SUCCESS,
   DEL_FROM_REDUX,
+  NEW_APPOINTMENT,
 } from './appointActTypes';
 
 const init = {
@@ -30,6 +35,8 @@ const appointReducer = (state = init, action) => {
       };
     case DELL_SUCCESS:
       return { ...state, message: action.payload.success };
+    case NEW_APPOINTMENT:
+      return { ...state, message: action.payload, loading: false };
     default:
       return state;
   }
