@@ -8,16 +8,14 @@ const Doctor = ({ doctor, selectDoc }) => {
     name, title, img, info, id,
   } = doctor;
   return (
-    <div className={css.container}>
-      <div className={css.doctor}>
-        <img src={img} alt={name} />
-        <h4>{name}</h4>
-        <span>{title}</span>
-        <p>{info}</p>
-        <Link to={`/${id}`} onClick={() => selectDoc(id)}>
-          <button type="button">Book an appointments</button>
-        </Link>
-      </div>
+    <div className={css.doctor}>
+      <img src={img} alt={name} />
+      <h4>{name}</h4>
+      <span>{title}</span>
+      <p>{info}</p>
+      <Link to={`/${id}`} onClick={() => selectDoc(id)}>
+        <button type="button">Book an appointments</button>
+      </Link>
     </div>
   );
 };

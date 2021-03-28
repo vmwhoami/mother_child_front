@@ -82,10 +82,14 @@ nav a{
  margin-bottom: 3vh;
 }
 
+.container{
+  width: 90vw;
+  height: 100vh;
+}
 .doctors{
-  width: 50vw;
+  /* width: 50vw;
   height: 50vh;
-  display: flex;
+  display: flex; */
   /* overflow: hidden; */
   margin-top:20px;
 }

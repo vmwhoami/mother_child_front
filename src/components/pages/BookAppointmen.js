@@ -41,7 +41,6 @@ const BookAppointmen = () => {
             <img src={img} alt={name} />
           </div>
           <aside className={css.aside}>
-            <h1>{id}</h1>
             <h3>
               Full name:
               {' '}

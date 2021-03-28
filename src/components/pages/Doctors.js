@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Layout from '../Layout';
+import { selectedDoc } from '../../redux/doctors/doctorActions';
 import Doctor from '../comp/Doctor';
 import Loading from '../comp/Loading';
-import { selectedDoc } from '../../redux/doctors/doctorActions';
+import Layout from '../Layout';
 
-const Home = () => {
+const Doctors = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.doctorReducer);
   const { loading } = state;
@@ -24,4 +24,5 @@ const Home = () => {
     </Layout>
   );
 };
-export default Home;
+
+export default Doctors;
