@@ -33,9 +33,17 @@ nav a{
  margin-top: auto;
  margin-bottom: 3vh;
 }
-
-.svg{
+.logo{
   fill: #444444;
   width: 100px;
   height: 100px;
+}
+.svg{
+  fill: #444444;
+  width: 16px;
+  height: 16px;
+}
+
+.allrights{
+  max-width: 200px;
 }

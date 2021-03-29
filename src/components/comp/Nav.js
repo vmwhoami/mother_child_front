@@ -17,8 +17,8 @@ const Nav = () => {
   };
   return (
     <div className="navigation">
-      <div className={css.logo}>
-        <Logo style={css.svg} />
+      <div>
+        <Logo style={css.logo} />
       </div>
       <nav>
         <Link to="/">Home</Link>
