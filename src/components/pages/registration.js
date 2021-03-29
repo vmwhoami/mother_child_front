@@ -5,6 +5,7 @@ import { register, clearErrors } from '../../redux/registration/registationActio
 import ErrorHandler from '../comp/ErrorHandler';
 import SuccessHandler from '../comp/SuccessHandler';
 import Layout from '../Layout';
+import css from '../../css/logreg.module.css';
 
 const Registration = () => {
   const dispatch = useDispatch();
@@ -63,42 +64,42 @@ const Registration = () => {
   }
   return (
     <Layout>
-      <div>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="fullname">
-            Full Name
-            <input name="fullname" type="text" value={fullname} onChange={(e) => handleChange(e)} placeholder="Full Name" />
-          </label>
+      <div className={css.container}>
+        <div className={css.formcont}>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <div className={css.formfield}>
+              <input name="fullname" type="text" value={fullname} onChange={(e) => handleChange(e)} placeholder="Full Name" />
+            </div>
+            <div className={css.formfield}>
+              <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
+            </div>
 
-          <label htmlFor="email">
-            Email
-            <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
-          </label>
+            <div className={css.formfield}>
+              <select name="gender" className={gender} onClick={(e) => handleChange(e)}>
+                {genders.map((gen) => (
+                  <option key={gen} value={gen}>{gen}</option>
+                ))}
+              </select>
+            </div>
 
-          <label htmlFor="gender">
-            Gender
-            <select name="gender" className={gender} onClick={(e) => handleChange(e)}>
-              {genders.map((gen) => (
-                <option key={gen} value={gen}>{gen}</option>
-              ))}
-            </select>
-          </label>
+            <div className={css.formfield}>
+              <input name="age" type="number" value={age} onChange={(e) => handleChange(e)} placeholder="Age in years" />
 
-          <label htmlFor="age">
-            Age
-            <input name="age" type="number" value={age} onChange={(e) => handleChange(e)} placeholder="Age in years" />
-          </label>
+            </div>
+            <div className={css.formfield}>
+              <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
+            </div>
 
-          <label htmlFor="password">
-            Password
-            <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
-          </label>
-          <button type="submit">Register</button>
-        </form>
-        {state.errors.length > 0 ? <ErrorHandler errors={state.errors} /> : null}
+            <div className={css.formfield}>
+              <button type="submit">Register</button>
+            </div>
+          </form>
+          {state.errors.length > 0 ? <ErrorHandler errors={state.errors} /> : null}
 
-        {state.user ? <SuccessHandler message="Registration" /> : null}
+          {state.user ? <SuccessHandler message="Registration" /> : null}
+        </div>
       </div>
+
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-// import Loading from '../comp/Loading';
+import Loading from '../comp/Loading';
 import Layout from '../Layout';
 
 import Appoint from '../container/Appoint';
@@ -22,14 +22,26 @@ const Appointments = () => {
   }, []);
 
   const { myAppoint } = state;
+  if (myAppoint.length < 1) {
+    return (
+      <div className="container">
+        <Layout>
+          <Loading />
+        </Layout>
+      </div>
+    );
+  }
   return (
     <Layout>
-      {myAppoint.map((appoint) => (
-        <Appoint
-          key={appoint.id}
-          appoint={appoint}
-        />
-      ))}
+      <div className="container">
+        <h2>My appointments</h2>
+        {myAppoint.map((appoint) => (
+          <Appoint
+            key={appoint.id}
+            appoint={appoint}
+          />
+        ))}
+      </div>
     </Layout>
   );
 };

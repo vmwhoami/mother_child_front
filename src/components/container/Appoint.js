@@ -20,10 +20,10 @@ const Appoint = ({
   };
   return (
     <div>
+
       <span>{name}</span>
       <span>{title}</span>
       <span>{date}</span>
-
       <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
     </div>
   );

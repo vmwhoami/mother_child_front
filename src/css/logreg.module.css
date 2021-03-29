@@ -28,6 +28,10 @@
   padding: 10px;
   border: none;
 }
+.formfield select{
+  padding: 10px;
+}
+
 .formfield input::placeholder{
   text-transform: uppercase;
 }
