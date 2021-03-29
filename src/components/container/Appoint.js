@@ -12,8 +12,11 @@ const Appoint = ({
   } = appoint;
 
   const doctor = doctors.find((doctor) => doctor.id === doctorId);
-  const { name, title } = doctor;
-
+  const {
+    name, title, recieving_hours: receiving, room,
+  } = doctor;
+  const dateTime = (new Date(date)).toString().split(' ').slice(0, 4)
+    .join(' ');
   const delitAppointment = (obj) => {
     delAppoinFromRedux(obj);
     deletAppoint(obj);
@@ -21,9 +24,17 @@ const Appoint = ({
   return (
     <div>
 
-      <span>{name}</span>
-      <span>{title}</span>
-      <span>{date}</span>
+      <h2>{`Doctors name: ${name}`}</h2>
+      <p>{title}</p>
+      <span>{dateTime}</span>
+      <span>
+        Receiving hours
+        {receiving}
+      </span>
+      <span>
+        Room
+        {room}
+      </span>
       <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
     </div>
   );

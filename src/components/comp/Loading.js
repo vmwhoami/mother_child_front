@@ -5,10 +5,10 @@ const Loading = () => {
   const heart = { color: '#10BBB5' };
   return (
     <div className="container">
-      <span>Loading ...</span>
-      <Heart color={heart.color} />
-      {' '}
-      :
+      <div className="loading">
+        <span>Loading ...</span>
+        <Heart color={heart.color} />
+      </div>
     </div>
   );
 };

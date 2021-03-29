@@ -110,3 +110,15 @@ flex-direction: column;
 .active{
   background-color: #10BBB5;
 }
+
+.loading{
+ min-width: 400px;
+ min-height: 400px;
+
+}
+
+.loading span{
+  font-size: 28px;
+  color: #10BBB5;;
+  text-transform: uppercase;
+}

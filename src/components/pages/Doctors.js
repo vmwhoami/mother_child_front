@@ -17,8 +17,9 @@ const Doctors = () => {
       <div className="container">
         <h1>Our Doctors</h1>
         <div className="doctors">
-          {loading ? <Loading /> : state.doctors.filter((doc) => doc)
-            .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
+          {loading ? <Loading />
+            : state.doctors.filter((doc) => doc)
+              .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
         </div>
       </div>
     </Layout>
