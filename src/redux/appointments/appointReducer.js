@@ -26,7 +26,7 @@ const appointReducer = (state = init, action) => {
     case MAKE_APT_SUCCESS:
       return { ...state, message: action.payload, error: false };
     case MAKE_APT_FAIL:
-      return { ...state, message: action.payload, error: false };
+      return { ...state, message: action.payload.message, error: true };
     case DEL_FROM_REDUX:
       return {
         ...state,

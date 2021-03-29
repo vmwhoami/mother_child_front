@@ -1,10 +1,41 @@
 .container{
-  display: flex;
+   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
-form{
+.formcont{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  width: 35vw;
+  height: 40vh;
+  
+
+}
+
+.formfield{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #E2E3E5;
+  
+}
+
+.formfield input{
+  padding: 10px;
+  border: none;
+}
+.formfield input::placeholder{
+  text-transform: uppercase;
+}
+.formfield button{
+  padding: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
 }

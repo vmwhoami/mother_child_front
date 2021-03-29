@@ -45,20 +45,22 @@ const Login = () => {
   return (
     <Layout>
       <div className={css.container}>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <label htmlFor="email">
-            Email
-            <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
-          </label>
-          <label htmlFor="password">
-            Password
-            <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
-          </label>
-          <button type="submit">Login</button>
-        </form>
-        {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}
+        <div className={css.formcont}>
+          <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
+            <div className={css.formfield}>
+              <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
+            </div>
+            <div className={css.formfield}>
+              <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
+            </div>
+            <div className={css.formfield}>
+              <button type="submit">Login</button>
+            </div>
+          </form>
+          {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}
 
-        {state.user ? <SuccessHandler message="Login" /> : null}
+          {state.user ? <SuccessHandler message="Login" /> : null}
+        </div>
       </div>
     </Layout>
   );

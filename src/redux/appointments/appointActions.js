@@ -33,11 +33,13 @@ const newAppointment = (data) => ({
 });
 
 const getAllMyAppoint = (data) => async (dispatch) => {
+  const token = await localStorage.getItem('token');
+  const auth = { Authorization: `Bearer ${token}` };
   axios.post(`${url}myappointmets`, data, {
     headers: auth,
   }).then((response) => {
     dispatch(gotAppointSuccess(response.data));
-  }).catch((err) => dispatch(gotAppointFail(err)));
+  });
 };
 
 const bookAnAppointment = (data) => async (dispatch) => {
