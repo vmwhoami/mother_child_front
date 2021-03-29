@@ -5,6 +5,7 @@ import Footer from './Footer';
 import css from '../../css/nav.module.css';
 import { logout } from '../../redux/login/loginActions';
 import { getAllMyAppoint } from '../../redux/appointments/appointActions';
+import { Logo } from './Svgs';
 
 const Nav = () => {
   const state = useSelector((state) => state.loginReducer);
@@ -16,11 +17,13 @@ const Nav = () => {
   };
   return (
     <div className="navigation">
-      <div className={css.logo} />
+      <div className={css.logo}>
+        <Logo style={css.svg} />
+      </div>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/doctors">Doctors</Link>
-        {loggedIn ? <Link to="/myAppointment" onClick={getAppointments}>My appointments</Link>
+        {loggedIn ? <Link to="/myAppointment" onClick={getAppointments}>Appointments</Link>
           : <Link to="/register">Register</Link>}
         {!loggedIn ? <Link to="/login">Login</Link>
           : (

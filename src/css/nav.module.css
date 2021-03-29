@@ -1,6 +1,4 @@
 .container{
-
-  height: 100vh;
   width: 15vw;
   position: fixed;
   top: 0;
@@ -34,4 +32,10 @@ nav a{
 .footer{
  margin-top: auto;
  margin-bottom: 3vh;
+}
+
+.svg{
+  fill: #444444;
+  width: 100px;
+  height: 100px;
 }

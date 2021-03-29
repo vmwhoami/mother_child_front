@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import css from '../../css/doctors.module.css';
+import styles from '../../css/doctors.module.css';
 
 const Doctor = ({ doctor, selectDoc }) => {
   const {
@@ -9,8 +9,7 @@ const Doctor = ({ doctor, selectDoc }) => {
   } = doctor;
 
   return (
-
-    <div>
+    <div className={styles.container}>
       <img src={img} alt={name} />
       <h4>{name}</h4>
       <span>{title}</span>
