@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  GET_APT_SUCCESS, GET_APT_FAIL, DEL_FROM_REDUX, DELL_SUCCESS, NEW_APPOINTMENT,
+  GET_APT_SUCCESS, GET_APT_FAIL, DEL_FROM_REDUX, DELL_SUCCESS, NEW_APPOINTMENT, CLEAR_MESSAGE,
 } from './appointActTypes';
 
 const token = localStorage.getItem('token');
@@ -32,6 +32,16 @@ const newAppointment = (data) => ({
   payload: data,
 });
 
+const clearMessage = () => ({
+  type: CLEAR_MESSAGE,
+});
+
+const callClearMessage = () => async (dispatch) => {
+  setTimeout(() => {
+    dispatch(clearMessage());
+  }, 2000);
+};
+
 const getAllMyAppoint = (data) => async (dispatch) => {
   const token = await localStorage.getItem('token');
   const auth = { Authorization: `Bearer ${token}` };
@@ -59,4 +69,5 @@ export {
   deletAppoint,
   delAppoinFromRedux,
   bookAnAppointment,
+  callClearMessage,
 };

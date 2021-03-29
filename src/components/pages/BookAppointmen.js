@@ -4,15 +4,17 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import Layout from '../Layout';
-import { bookAnAppointment } from '../../redux/appointments/appointActions';
+import { bookAnAppointment, callClearMessage } from '../../redux/appointments/appointActions';
 import css from '../../css/bookAppointmen.module.css';
+import SuccessHandler from '../comp/SuccessHandler';
 
 const BookAppointmen = () => {
   const doctor = useSelector((state) => state.doctorReducer.selected);
   const user = useSelector((state) => state.loginReducer);
+  const appoint = useSelector((state) => state.appointReducer);
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
-
+  const { message } = appoint;
   const { loggedIn } = user;
 
   const {
@@ -21,6 +23,7 @@ const BookAppointmen = () => {
   const createAppointment = () => {
     const appointment = { user: user.user.id, doctor: id, time: startDate };
     dispatch(bookAnAppointment(appointment));
+    dispatch(callClearMessage());
   };
 
   if (!loggedIn) {
@@ -49,6 +52,7 @@ const BookAppointmen = () => {
             <div className={css.pickdate}>
               <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
               <button type="submit" onClick={() => createAppointment()}>Book now</button>
+              {message ? <SuccessHandler message="Appointent created" /> : null}
             </div>
 
           </aside>

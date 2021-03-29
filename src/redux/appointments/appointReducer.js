@@ -6,6 +6,7 @@ import {
   DELL_SUCCESS,
   DEL_FROM_REDUX,
   NEW_APPOINTMENT,
+  CLEAR_MESSAGE,
 } from './appointActTypes';
 
 const init = {
@@ -37,6 +38,8 @@ const appointReducer = (state = init, action) => {
       return { ...state, message: action.payload.success };
     case NEW_APPOINTMENT:
       return { ...state, message: action.payload, loading: false };
+    case CLEAR_MESSAGE:
+      return { ...state, message: null, loading: false };
     default:
       return state;
   }
