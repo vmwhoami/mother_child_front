@@ -3,4 +3,34 @@
   padding: 20px;
   border: 2px solid #E4E5E9;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card button{
+  padding: 10px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  background-color: #10BBB5;
+  transition: 850ms;
+}
+
+.card button:hover{
+  background-color: red;
+}
+.left{
+  display: flex;
+  flex-direction: column;
+}
+.left span{
+  padding-top: 10px;
+}
+.right{
+  display: flex;
+  flex-direction: column;
+}
+
+.right span{
+  padding: 10px;
 }

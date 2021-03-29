@@ -30,29 +30,30 @@ const BookAppointmen = () => {
   return (
     <Layout>
       <div className="container">
-        <article className={css.article}>
-          <h1>
-            {`Book an appointment with ${name.split(' ')[0]}`}
-          </h1>
-          <div className={css.container}>
-            <div className={css.imgcont}>
-              <img src={img} alt={name} />
-            </div>
-            <aside className={css.aside}>
-              <h3>{`Full name: ${name}`}</h3>
-              <span>{title}</span>
-              <p>{info}</p>
-              <span>
-                {' '}
-                {`Room Number:${room}`}
-              </span>
-              <p>{`Receiving hours: ${hours}`}</p>
+        <h1>
+          {`Book an appointment with ${name.split(' ')[0]}`}
+        </h1>
+        <div className={css.container}>
+          <div className={css.imgcont}>
+            <img src={img} alt={name} />
+          </div>
+          <aside className={css.aside}>
+            <h3>{`Full name: ${name}`}</h3>
+            <h4>{title}</h4>
+            <p>{info}</p>
+            <span>
+              {' '}
+              {`Room Number:${room}`}
+            </span>
+            <p>{`Receiving hours: ${hours}`}</p>
+            <div className={css.pickdate}>
               <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
               <button type="submit" onClick={() => createAppointment()}>Book now</button>
+            </div>
 
-            </aside>
-          </div>
-        </article>
+          </aside>
+        </div>
+
       </div>
     </Layout>
   );

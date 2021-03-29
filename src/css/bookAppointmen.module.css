@@ -1,21 +1,13 @@
-.article{
-  --auto-grid-min-size: 16rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
-  grid-gap: 1rem;
-}
 
 .container{
-  margin-top: 20px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
+ display: flex;
+
+ margin-top: 100px;
 }
 
  .imgcont{
-   width: 100vw;
-  height: 60vh;
+  width: 70vw;
+  height: 80vh;
  }
 
  .imgcont img{
@@ -25,6 +17,12 @@
  }
 
  .aside{
-   width:45vw;
-   margin:0 50px 0 50px;
+ max-width: 400px;
+ display: flex;
+ flex-direction: column;
+align-items: flex-end;
+ }
+ .pickdate{
+   display: flex;
+   flex-direction: column;
  }

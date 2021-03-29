@@ -22,19 +22,25 @@ const Appoint = ({
   };
   return (
     <div className={css.card}>
-      <h4>{`Doctors name: ${name}`}</h4>
-      <h3>{title}</h3>
-      <span>{`TIME: ${dateTime}`}</span>
-      <span>
-        {' '}
-        {`Receiving hours: ${receiving}`}
-        {' '}
-      </span>
-      <span>
-        {' '}
-        {`Room Nr.: ${room}`}
-      </span>
-      <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
+      <div className={css.left}>
+        <h4>{`Doctors name: ${name}`}</h4>
+        <h3>{title}</h3>
+        <span>
+          {' '}
+          {`Receiving hours: ${receiving}`}
+        </span>
+      </div>
+
+      <div className={css.right}>
+        <span>{`TIME: ${dateTime}`}</span>
+        <span>
+          {' '}
+          {`Room Nr.: ${room}`}
+          {' '}
+        </span>
+        <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
+      </div>
+
     </div>
   );
 };
