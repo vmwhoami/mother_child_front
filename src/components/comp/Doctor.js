@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import css from '../../css/doctors.module.css';
+// import css from '../../css/doctors.module.css';
 
 const Doctor = ({ doctor, selectDoc }) => {
   const {
     name, title, img, info, id,
   } = doctor;
+
   return (
-    <div className={css.doctor}>
+
+    <div>
       <img src={img} alt={name} />
       <h4>{name}</h4>
       <span>{title}</span>
@@ -17,6 +19,7 @@ const Doctor = ({ doctor, selectDoc }) => {
         <button type="button">Book an appointments</button>
       </Link>
     </div>
+
   );
 };
 Doctor.propTypes = {

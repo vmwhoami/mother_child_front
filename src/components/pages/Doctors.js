@@ -15,7 +15,7 @@ const Doctors = () => {
   return (
     <Layout>
       <div className="container">
-        <h1>Our doctors</h1>
+        <h1>Fuck you mother fuckers</h1>
         <div className="doctors">
           {loading ? <Loading /> : state.doctors.filter((doc) => doc)
             .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
