@@ -11,7 +11,6 @@
 
 }
 
-
 .container .active{
 left: 0;
 transition: 350ms;
@@ -25,25 +24,32 @@ nav a{
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   color: #434343;
 }
 
 .footer{
  margin-top: auto;
- margin-bottom: 3vh;
+ padding-right: 20px;
 }
 .logo{
   fill: #444444;
-  width: 100px;
+ 
   height: 100px;
 }
 .svg{
   fill: #444444;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
-.allrights{
-  max-width: 200px;
+.social{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
+.allrights a{
+ text-decoration: none;
+ color: #444444;
+}
+

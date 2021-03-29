@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from '../../css/doctors.module.css';
+// import styles from '../../css/doctors.module.css';
 
 const Doctor = ({ doctor, selectDoc }) => {
   const {
@@ -9,11 +9,14 @@ const Doctor = ({ doctor, selectDoc }) => {
   } = doctor;
 
   return (
-    <div className={styles.container}>
-      <img src={img} alt={name} />
+    <div className="doctor">
+      <div className="docimgContainer">
+        <img className="docimg" src={img} alt={name} />
+      </div>
       <h4>{name}</h4>
       <span>{title}</span>
-      <p>{info}</p>
+      <p>{`${info.split('.')[0]}...`}</p>
+
       <Link to={`/${id}`} onClick={() => selectDoc(id)}>
         <button type="button">Book an appointments</button>
       </Link>

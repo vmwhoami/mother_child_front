@@ -21,7 +21,7 @@ const Nav = () => {
         <Logo style={css.logo} />
       </div>
       <nav>
-        <Link to="/">Home</Link>
+        <Link to="/" onMouseEnter={() => console.log('hello')}>Home</Link>
         <Link to="/doctors">Doctors</Link>
         {loggedIn ? <Link to="/myAppointment" onClick={getAppointments}>Appointments</Link>
           : <Link to="/register">Register</Link>}
