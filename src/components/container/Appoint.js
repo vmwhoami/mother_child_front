@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import PropTypes from 'prop-types';
 import { delAppoinFromRedux, deletAppoint } from '../../redux/appointments/appointActions';
+import css from '../../css/appoint.module.css';
 
 const Appoint = ({
   appoint, doctors, delAppoinFromRedux, deletAppoint,
@@ -10,7 +10,6 @@ const Appoint = ({
   const {
     id, doctor_id: doctorId, date_time: date,
   } = appoint;
-
   const doctor = doctors.find((doctor) => doctor.id === doctorId);
   const {
     name, title, recieving_hours: receiving, room,
@@ -22,18 +21,18 @@ const Appoint = ({
     deletAppoint(obj);
   };
   return (
-    <div>
-
-      <h2>{`Doctors name: ${name}`}</h2>
-      <p>{title}</p>
-      <span>{dateTime}</span>
+    <div className={css.card}>
+      <h4>{`Doctors name: ${name}`}</h4>
+      <h3>{title}</h3>
+      <span>{`TIME: ${dateTime}`}</span>
       <span>
-        Receiving hours
-        {receiving}
+        {' '}
+        {`Receiving hours: ${receiving}`}
+        {' '}
       </span>
       <span>
-        Room
-        {room}
+        {' '}
+        {`Room Nr.: ${room}`}
       </span>
       <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
     </div>

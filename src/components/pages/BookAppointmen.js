@@ -29,40 +29,31 @@ const BookAppointmen = () => {
 
   return (
     <Layout>
-      <article className={css.article}>
-        <h1>
-          Book an appointment with
-          {' '}
-          {' '}
-          {name.split(' ')[0]}
-        </h1>
-        <div className={css.container}>
-          <div className={css.imgcont}>
-            <img src={img} alt={name} />
+      <div className="container">
+        <article className={css.article}>
+          <h1>
+            {`Book an appointment with ${name.split(' ')[0]}`}
+          </h1>
+          <div className={css.container}>
+            <div className={css.imgcont}>
+              <img src={img} alt={name} />
+            </div>
+            <aside className={css.aside}>
+              <h3>{`Full name: ${name}`}</h3>
+              <span>{title}</span>
+              <p>{info}</p>
+              <span>
+                {' '}
+                {`Room Number:${room}`}
+              </span>
+              <p>{`Receiving hours: ${hours}`}</p>
+              <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+              <button type="submit" onClick={() => createAppointment()}>Book now</button>
+
+            </aside>
           </div>
-          <aside className={css.aside}>
-            <h3>
-              Full name:
-              {' '}
-              {name}
-            </h3>
-            <span>{title}</span>
-            <p>{info}</p>
-            <p>
-              Room Number
-              {room}
-            </p>
-            <p>
-              Receiving hours
-              {hours}
-            </p>
-
-            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-            <button type="submit" onClick={() => createAppointment()}>Book now</button>
-
-          </aside>
-        </div>
-      </article>
+        </article>
+      </div>
     </Layout>
   );
 };

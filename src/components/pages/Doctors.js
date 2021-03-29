@@ -19,7 +19,11 @@ const Doctors = () => {
         <div className="doctors">
           {loading ? <Loading />
             : state.doctors.filter((doc) => doc)
-              .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
+              .map((doctor) => (
+
+                <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />
+
+              ))}
         </div>
       </div>
     </Layout>
