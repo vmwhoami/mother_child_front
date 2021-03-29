@@ -75,6 +75,7 @@ const Registration = () => {
             </div>
 
             <div className={css.formfield}>
+              <span>Gender</span>
               <select name="gender" className={gender} onClick={(e) => handleChange(e)}>
                 {genders.map((gen) => (
                   <option key={gen} value={gen}>{gen}</option>
@@ -83,7 +84,8 @@ const Registration = () => {
             </div>
 
             <div className={css.formfield}>
-              <input name="age" type="number" value={age} onChange={(e) => handleChange(e)} placeholder="Age in years" />
+              <span>Age in years</span>
+              <input name="age" type="number" value={age} onChange={(e) => handleChange(e)} />
 
             </div>
             <div className={css.formfield}>

@@ -52,7 +52,7 @@ const BookAppointmen = () => {
             <div className={css.pickdate}>
               <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
               <button type="submit" onClick={() => createAppointment()}>Book now</button>
-              {message ? <SuccessHandler message="Appointent created" /> : null}
+              {message === 'created' ? <SuccessHandler message="Appointent created" /> : null}
             </div>
 
           </aside>

@@ -27,9 +27,9 @@ const deleteSuccess = (data) => ({
   payload: data,
 });
 
-const newAppointment = (data) => ({
+const newAppointment = () => ({
   type: NEW_APPOINTMENT,
-  payload: data,
+  payload: 'created',
 });
 
 const clearMessage = () => ({
