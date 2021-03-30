@@ -1,6 +1,16 @@
-## Catalogue-Of-Statisctics
+## Mother and Child Hospital
 
-![screenshot](./mother_child_front.gif)
+In this project, I developed a frontend web application, Book a doctor apointment using Book a doctor apointment API - [Repo](https://github.com/vmwhoami/mother_child_api) I also develop, a requirement for my final capstone project to consume the data using React Application.
+
+The application features includes:
+
+- A proper Authentication for Login and Registration page that requires authentication using JWT
+- Listing of all Doctors
+- The user can make an appointment with a specific Doctor
+- The user can access a list of his appointments.
+- The user can cancel the appointment.
+
+![screenshot](./mother_child.gif)
 
 ### Live Demo
 
@@ -18,7 +28,7 @@ Make sure Node.js is running on your local machine
 
 ```bash
 $ git clone https://github.com/vmwhoami/mother_child_front
-$ cd catalogue-of-statisctics
+$ cd mother_child_front
 ```
 
 Install modules:
