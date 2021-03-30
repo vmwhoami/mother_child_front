@@ -1,10 +1,10 @@
 ## Catalogue-Of-Statisctics
 
-![screenshot](./catalogue-of-statistics.gif)
+![screenshot](./mother_child_front.gif)
 
 ### Live Demo
 
-Open [this link](https://mother_child_front.netlify.app/) to view it live.
+Open [this link](https://mother-child.netlify.app/) to view it live.
 
 ## Getting Started
 

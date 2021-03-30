@@ -11,7 +11,6 @@ import SuccessHandler from '../component/SuccessHandler';
 const BookAppointmen = () => {
   const user = useSelector((state) => state.loginReducer);
   const doctor = useSelector((state) => state.doctorReducer.selected);
-
   const appoint = useSelector((state) => state.appointReducer);
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
