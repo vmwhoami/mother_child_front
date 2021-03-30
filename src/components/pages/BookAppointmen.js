@@ -42,12 +42,18 @@ const BookAppointmen = () => {
           </div>
           <aside className={css.aside}>
             <h3>{`Full name: ${name}`}</h3>
-            <h4>{title}</h4>
-            <p>{info}</p>
-            <span>
-              {' '}
-              {`Room Number:${room}`}
-            </span>
+            <div>
+              <h4>{title}</h4>
+            </div>
+            <div>
+              <p>{info}</p>
+            </div>
+            <div>
+              <span>
+                {' '}
+                {`Room Number:${room}`}
+              </span>
+            </div>
             <p>{`Receiving hours: ${hours}`}</p>
             <div className={css.pickdate}>
               <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
