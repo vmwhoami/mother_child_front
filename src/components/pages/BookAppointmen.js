@@ -34,6 +34,11 @@ const BookAppointmen = () => {
     return (condition ? `${css.success}` : `${css.error}`);
   };
 
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
+
   if (!loggedIn) {
     return <Redirect to="/login" />;
   }
@@ -67,13 +72,16 @@ const BookAppointmen = () => {
               <DatePicker
                 showTimeSelect
                 selected={startDate}
+                filterDate={isWeekday}
                 timeClassName={handleColor}
                 onChange={(date) => setStartDate(date)}
-
+                className={css.input}
+                minDate={new Date()}
+                showDisabledMonthNavigation
               />
             </span>
             <span>
-              <button type="submit" onClick={() => createAppointment()}>Book now</button>
+              <button type="submit" className={css.btn} onClick={() => createAppointment()}>Book now</button>
               {message === 'created' ? <SuccessHandler message="Appointent created" /> : null}
             </span>
           </aside>

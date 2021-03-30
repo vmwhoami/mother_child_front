@@ -14,7 +14,9 @@ const Appoint = ({
   const {
     name, title, recieving_hours: receiving, room,
   } = doctor;
-  const dateTime = (new Date(date)).toString().split(' ').slice(0, 4)
+  const dateDayOfWeek = (new Date(date)).toString().split(' ').slice(0, 4)
+    .join(' ');
+  const hour = (new Date(date)).toString().split(' ').slice(4, 5)
     .join(' ');
   const delitAppointment = (obj) => {
     delAppoinFromRedux(obj);
@@ -32,7 +34,8 @@ const Appoint = ({
       </div>
 
       <div className={css.right}>
-        <span>{`TIME: ${dateTime}`}</span>
+        <span>{`TIME: ${dateDayOfWeek}`}</span>
+        <span>{`At: ${hour}`}</span>
         <span>
           {' '}
           {`Room Nr.: ${room}`}

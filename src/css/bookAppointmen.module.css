@@ -36,11 +36,27 @@ align-items: flex-end;
  .aside span:last-child{
    width: 100%;
    display: flex;
+   justify-content: center;
  }
  .aside input{
   padding:5px;
  }
 
+.btn{
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: 850ms;
+  width: 100%;
+  border-radius: 3px;
+}
+.btn:hover{
+background-color: #0FBBB6;
+}
+ .imput{
+   border: none;
+ }
  .success{
    color: green;
  }
