@@ -1,41 +1,40 @@
-.container{
-   display: flex;
+.container {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.formcont{
+.formcont {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 35vw;
   height: 40vh;
-  
-
 }
 
-.formfield{
+.formfield {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background-color: #E2E3E5;
-  
+  background-color: #e2e3e5;
 }
 
-.formfield input{
+.formfield input {
   padding: 10px;
   border: none;
 }
-.formfield select{
+
+.formfield select {
   padding: 10px;
 }
 
-.formfield input::placeholder{
+.formfield input::placeholder {
   text-transform: uppercase;
 }
-.formfield button{
+
+.formfield button {
   padding: 10px;
   font-size: 20px;
   text-transform: uppercase;

@@ -1,15 +1,15 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
- 
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato',sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 body {
-   font-family:
+  font-family:
     -apple-system,
     BlinkMacSystemFont,
     'Segoe UI',
@@ -35,40 +35,42 @@ code {
     monospace;
 }
 
-
-#root{
-
-}
-.container{
-max-width:  80vw;
-margin-left: 250px;
+.container {
+  max-width: 80vw;
+  margin-left: 250px;
 }
 
-.navigation{
+.navigation {
   height: 100vh;
   position: fixed;
   top: 0;
-  left:0;
+  left: 0;
+
   /* left:-100% ; */
   display: flex;
   flex-direction: column;
   padding: 20px 0 20px 20px;
- border-right: 2px solid #E4E5E9;
- background-color: white;
- transition: 850ms;
-
-}
-.navigation .active{
-left: 0;
-transition: 350ms;
+  border-right: 2px solid #e4e5e9;
+  background-color: white;
+  transition: 850ms;
 }
 
-nav{
+.active {
+  background-color: #10bbb5;
+}
+
+.navigation .active {
+  left: 0;
+  transition: 350ms;
+}
+
+nav {
   margin-top: 20px;
   display: flex;
   flex-direction: column;
 }
-nav a{
+
+nav a {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 900;
@@ -78,48 +80,46 @@ nav a{
   transition: 850ms;
 }
 
-nav a:hover{
-  background-color: #10BBB5;
-}
-.footer{
- margin-top: auto;
+nav a:hover {
+  background-color: #10bbb5;
 }
 
+.footer {
+  margin-top: auto;
+}
 
-.doctors{
+.doctors {
   --auto-grid-min-size: 16rem;
+
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   grid-gap: 1rem;
-  margin: 20px 0 20px 0 ;
+  margin: 20px 0 20px 0;
 }
 
-.doctor{
-display: flex;
-flex-direction: column;
+.doctor {
+  display: flex;
+  flex-direction: column;
 }
 
-.docimgContainer{
+.docimgContainer {
   width: 100%;
   height: 350px;
 }
-.docimg{
+
+.docimg {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
-.active{
-  background-color: #10BBB5;
+
+.loading {
+  min-width: 400px;
+  min-height: 400px;
 }
 
-.loading{
- min-width: 400px;
- min-height: 400px;
-
-}
-
-.loading span{
+.loading span {
   font-size: 28px;
-  color: #10BBB5;;
+  color: #10bbb5;
   text-transform: uppercase;
 }

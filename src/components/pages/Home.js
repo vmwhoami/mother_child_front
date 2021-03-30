@@ -5,8 +5,6 @@ import Layout from '../Layout';
 import Doctor from '../comp/Doctor';
 import Loading from '../comp/Loading';
 import { selectedDoc } from '../../redux/doctors/doctorActions';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -19,9 +17,9 @@ const Home = () => {
   return (
     <Layout>
       <div className="container">
-        <h1>Our doctors</h1>
+        <h1>Doctors</h1>
         <div className="doctors">
-          {loading ? <Loading /> : state.doctors.filter((doc) => doc)
+          {loading ? <Loading /> : state.doctors.slice(0, 4)
             .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
         </div>
       </div>

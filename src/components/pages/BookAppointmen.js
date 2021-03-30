@@ -77,6 +77,7 @@ const BookAppointmen = () => {
                 onChange={(date) => setStartDate(date)}
                 className={css.input}
                 minDate={new Date()}
+                dateFormat="MMMM d, yyyy h:mm aa"
                 showDisabledMonthNavigation
               />
             </span>
