@@ -41,7 +41,8 @@ const login = (credentials) => async (dispatch) => {
 
 const autoLogin = () => async (dispatch) => {
   const url = 'https://mother-child-api.herokuapp.com/api/v1/auto_login';
-  const token = localStorage.getItem('token');
+  const token = await localStorage.getItem('token');
+  console.log(token);
   if (token) {
     axios.get(url, {
       headers: {

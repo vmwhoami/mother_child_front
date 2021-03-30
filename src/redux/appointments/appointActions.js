@@ -3,9 +3,7 @@ import {
   GET_APT_SUCCESS, GET_APT_FAIL, DEL_FROM_REDUX, DELL_SUCCESS, NEW_APPOINTMENT, CLEAR_MESSAGE,
 } from './appointActTypes';
 
-const token = localStorage.getItem('token');
 const url = 'https://mother-child-api.herokuapp.com/api/v1/';
-const auth = { Authorization: `Bearer ${token}` };
 
 const gotAppointFail = (err) => ({
   type: GET_APT_FAIL,
@@ -44,7 +42,8 @@ const callClearMessage = () => async (dispatch) => {
 
 const getAllMyAppoint = (data) => async (dispatch) => {
   const token = await localStorage.getItem('token');
-  const auth = { Authorization: `Bearer ${token}` };
+  const auth = await { Authorization: `Bearer ${token}` };
+
   axios.post(`${url}myappointmets`, data, {
     headers: auth,
   }).then((response) => {
@@ -53,10 +52,14 @@ const getAllMyAppoint = (data) => async (dispatch) => {
 };
 
 const bookAnAppointment = (data) => async (dispatch) => {
+  const token = await localStorage.getItem('token');
+  const auth = { Authorization: `Bearer ${token}` };
   axios.post(`${url}appointmets`, data, { headers: auth })
     .then((response) => dispatch(newAppointment(response.data)));
 };
 const deletAppoint = (data) => async (dispatch) => {
+  const token = await localStorage.getItem('token');
+  const auth = { Authorization: `Bearer ${token}` };
   axios.delete(`${url}appointmets`, { data, headers: auth })
     .then((response) => {
       dispatch(deleteSuccess(response.data));
