@@ -1,8 +1,8 @@
 ## Mother and Child Hospital
 
-In this project, I developed a frontend web application, Book a doctor apointment using Book a doctor apointment API - [Repo](https://github.com/vmwhoami/mother_child_api) I also develop, a requirement for my final capstone project to consume the data using React Application.
+In this project, I developed a frontend web application, Book a doctor appointment using Book a doctor appointment API - [Repo](https://github.com/vmwhoami/mother_child_api) I also develop, a requirement for my final capstone project to consume the data using React Application.
 
-The application features includes:
+The application features include:
 
 - A proper Authentication for Login and Registration page that requires authentication using JWT
 - Listing of all Doctors
