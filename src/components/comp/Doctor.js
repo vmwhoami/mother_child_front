@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Doctor = ({ doctor, selectDoc }) => {
   const {
-    name, title, img, info, id,
+    name, title, img, id, recieving_hours: hours,
   } = doctor;
 
   return (
@@ -15,10 +15,10 @@ const Doctor = ({ doctor, selectDoc }) => {
       </div>
       <h4>{name}</h4>
       <span>{title}</span>
-      <p>{`${info.split('.')[0]}...`}</p>
+      <p>{`Receiving hours: ${hours}`}</p>
 
       <Link to={`/${id}`} onClick={() => selectDoc(id)}>
-        <button type="button">Book an appointments</button>
+        <button className="button" type="button">Book an appointment</button>
       </Link>
     </div>
 

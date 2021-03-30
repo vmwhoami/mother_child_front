@@ -89,22 +89,36 @@ nav a:hover {
 }
 
 .doctors {
+ 
   --auto-grid-min-size: 16rem;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
   grid-gap: 1rem;
   margin: 20px 0 20px 0;
+  padding: 20px;
 }
 
 .doctor {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid #e4e5e9;
 }
 
+.doctor h4{
+  margin: 10px 0;
+}
+
+.doctor span{
+  font-weight: 700;
+  font-family: Menlo,'Courier New';
+}
 .docimgContainer {
   width: 100%;
-  height: 350px;
+  height: 300px;
+  border-bottom: 2px solid #e4e5e9;
 }
 
 .docimg {
@@ -112,7 +126,23 @@ nav a:hover {
   height: 100%;
   object-fit: contain;
 }
+.button{
+  margin-top: 20px;
+ width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 850ms;
+  text-transform: uppercase;
+  font-family:   sans-serif;
+  font-weight: 700;
 
+}
+.button:hover{
+background-color: #10bbb5;
+color: white;
+}
 .loading {
   min-width: 400px;
   min-height: 400px;
