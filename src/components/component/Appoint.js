@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { connect } from 'react-redux';
+
 import PropTypes from 'prop-types';
 import { delAppoinFromRedux, deletAppoint } from '../../redux/appointments/appointActions';
 import css from '../../css/appoint.module.css';
@@ -22,6 +24,7 @@ const Appoint = ({
     delAppoinFromRedux(obj);
     deletAppoint(obj);
   };
+
   return (
     <div className={css.card}>
       <div className={css.left}>

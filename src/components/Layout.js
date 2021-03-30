@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import Nav from './comp/Nav';
+import Nav from './component/Nav';
 import { autoLogin } from '../redux/login/loginActions';
 import { getDoctors } from '../redux/doctors/doctorActions';
 // import css from '../css/layout.module.css';

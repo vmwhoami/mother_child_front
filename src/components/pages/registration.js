@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { register, clearErrors } from '../../redux/registration/registationActions';
-import ErrorHandler from '../comp/ErrorHandler';
-import SuccessHandler from '../comp/SuccessHandler';
+import ErrorHandler from '../component/ErrorHandler';
+import SuccessHandler from '../component/SuccessHandler';
 import Layout from '../Layout';
 import css from '../../css/logreg.module.css';
 

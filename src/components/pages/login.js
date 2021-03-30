@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../redux/login/loginActions';
-import SuccessHandler from '../comp/SuccessHandler';
-import ErrorHandler from '../comp/ErrorHandler';
+import SuccessHandler from '../component/SuccessHandler';
+import ErrorHandler from '../component/ErrorHandler';
 import Layout from '../Layout';
 import css from '../../css/logreg.module.css';
 
@@ -55,6 +55,12 @@ const Login = () => {
             </div>
             <div className={css.formfield}>
               <button type="submit">Login</button>
+            </div>
+            <h4>OR</h4>
+            <div className={css.formfield}>
+              <Link to="/register">
+                Register
+              </Link>
             </div>
           </form>
           {state.errors ? <ErrorHandler errors={[state.failure.failure]} /> : null}

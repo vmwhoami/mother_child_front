@@ -13,7 +13,9 @@
   width: 35vw;
   height: 40vh;
 }
-
+.formcont h4{
+  text-align: center;
+}
 .formfield {
   display: flex;
   flex-direction: column;
@@ -41,4 +43,18 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
+}
+
+.formfield a{
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: #EFEFEF;
 }

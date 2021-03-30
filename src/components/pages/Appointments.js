@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import Loading from '../comp/Loading';
+import Loading from '../component/Loading';
 import Layout from '../Layout';
 
-import Appoint from '../container/Appoint';
+import Appoint from '../component/Appoint';
 import { getAllMyAppoint } from '../../redux/appointments/appointActions';
 
 const Appointments = () => {

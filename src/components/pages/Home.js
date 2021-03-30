@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
 import Layout from '../Layout';
-import Doctor from '../comp/Doctor';
-import Loading from '../comp/Loading';
+import Doctor from '../component/Doctor';
+import Loading from '../component/Loading';
 import { selectedDoc } from '../../redux/doctors/doctorActions';
 
 const Home = () => {

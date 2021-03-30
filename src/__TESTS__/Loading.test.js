@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Loading from '../components/comp/Loading';
+import Loading from '../components/component/Loading';
 
 it('renders Loading  correctly', () => {
   const tree = renderer.create(<Loading />);

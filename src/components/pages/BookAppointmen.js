@@ -6,17 +6,20 @@ import { Redirect } from 'react-router-dom';
 import Layout from '../Layout';
 import { bookAnAppointment, callClearMessage } from '../../redux/appointments/appointActions';
 import css from '../../css/bookAppointmen.module.css';
-import SuccessHandler from '../comp/SuccessHandler';
+import SuccessHandler from '../component/SuccessHandler';
 
 const BookAppointmen = () => {
-  const doctor = useSelector((state) => state.doctorReducer.selected);
   const user = useSelector((state) => state.loginReducer);
+  const doctor = useSelector((state) => state.doctorReducer.selected);
+
   const appoint = useSelector((state) => state.appointReducer);
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   const { message } = appoint;
   const { loggedIn } = user;
-
+  if (!loggedIn) {
+    return <Redirect to="/login" />;
+  }
   const {
     id, name, title, info, room, recieving_hours: hours, img,
   } = doctor;
@@ -38,10 +41,6 @@ const BookAppointmen = () => {
     const day = date.getDay();
     return day !== 0 && day !== 6;
   };
-
-  if (!loggedIn) {
-    return <Redirect to="/login" />;
-  }
 
   return (
     <Layout>
