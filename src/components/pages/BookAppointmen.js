@@ -26,6 +26,14 @@ const BookAppointmen = () => {
     dispatch(callClearMessage());
   };
 
+  const handleColor = (time) => {
+    const h = hours.split('-');
+    const begin = parseInt(h[0], 10);
+    const end = parseInt(h[1], 10);
+    const condition = time.getHours() >= begin && time.getHours() <= end;
+    return (condition ? `${css.success}` : `${css.error}`);
+  };
+
   if (!loggedIn) {
     return <Redirect to="/login" />;
   }
@@ -41,26 +49,33 @@ const BookAppointmen = () => {
             <img src={img} alt={name} />
           </div>
           <aside className={css.aside}>
-            <h3>{`Full name: ${name}`}</h3>
-            <div>
-              <h4>{title}</h4>
-            </div>
-            <div>
+            <span>
+              <h3>{`Full name: ${name}`}</h3>
+            </span>
+            <h4>{title}</h4>
+            <span>
               <p>{info}</p>
-            </div>
-            <div>
-              <span>
-                {' '}
-                {`Room Number:${room}`}
-              </span>
-            </div>
-            <p>{`Receiving hours: ${hours}`}</p>
-            <div className={css.pickdate}>
-              <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+            </span>
+            <span>
+              {' '}
+              {`Room Number:${room}`}
+            </span>
+            <span>
+              <p>{`Receiving hours: ${hours}`}</p>
+            </span>
+            <span>
+              <DatePicker
+                showTimeSelect
+                selected={startDate}
+                timeClassName={handleColor}
+                onChange={(date) => setStartDate(date)}
+
+              />
+            </span>
+            <span>
               <button type="submit" onClick={() => createAppointment()}>Book now</button>
               {message === 'created' ? <SuccessHandler message="Appointent created" /> : null}
-            </div>
-
+            </span>
           </aside>
         </div>
 

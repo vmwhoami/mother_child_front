@@ -19,11 +19,32 @@
  .aside{
    margin-right: 100px;
  max-width: 400px;
- display: flex;
- flex-direction: column;
+ /* display: flex; */
+ /* flex-direction: column; */
 align-items: flex-end;
  }
- .pickdate{
+ .aside span{
+  width: 100%;
+ display: block;
+ margin: 10px 0;
+ padding: 5px ;
+ }
+ .aside span:nth-child(odd){
+   background-color: #E2E3E5;
+ }
+
+ .aside span:last-child{
+   width: 100%;
    display: flex;
-   flex-direction: column;
+ }
+ .aside input{
+  padding:5px;
+ }
+
+ .success{
+   color: green;
+ }
+
+ .error{
+   color: red;
  }
