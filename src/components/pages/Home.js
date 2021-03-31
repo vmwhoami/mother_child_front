@@ -8,6 +8,7 @@ import { selectedDoc } from '../../redux/doctors/doctorActions';
 const Home = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.doctorReducer);
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const { loading } = state;
   const selectDoc = (id) => {
     dispatch(selectedDoc(id));
@@ -15,7 +16,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className={navbar ? 'container nomargin' : 'container'}>
         <h1>Doctors</h1>
         <div className="doctors">
           {loading ? <Loading /> : state.doctors.slice(0, 4)

@@ -34,45 +34,74 @@ code {
     'Courier New',
     monospace;
 }
-
+#root{
+  display: flex;
+  justify-content: center;
+}
 .container {
   max-width: 80vw;
   margin-left: 250px;
+  transition: 350ms;
+}
+.container.nomargin{
+  margin-left: 0;
+}
+.container h1 {
+  text-align: center;
 }
 
 .navigation {
   height: 100vh;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   display: flex;
   flex-direction: column;
   padding: 20px 0 20px 20px;
   border-right: 2px solid #e4e5e9;
   background-color: white;
   transition: 850ms;
-}
-.burgercont{
-  position: fixed;
-  top: 10%;
-  left: 10%;
-}
-.burger{
-  width: 50px;
-  min-height: 15px;
-  background-color: #10bbb5;
-  z-index: 100;
-  top: 0;
-  left: 0;
-}
-.active {
-  background-color: #10bbb5;
-}
-
-.navigation .active {
-  left: 0;
+  z-index: 10;
   transition: 350ms;
 }
+
+.navigation.active {
+  left: 0%;
+}
+
+.burgercont {
+  position: fixed;
+  display: flex;
+  top: 5%;
+  left: 5%;
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 20;
+  background:none;
+  border: none;
+  outline: none 
+}
+ 
+.burger {
+  width: 50px;
+  height: 15px;
+  background-color: #10bbb5;
+  border-radius: 40px;
+}
+
+.burger::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 15px;
+  margin-top: 20px;
+left: 0;
+  background-color: #10bbb5;
+  z-index: 100;
+  border-radius: 40px;
+}
+ 
 
 nav {
   margin-top: 20px;

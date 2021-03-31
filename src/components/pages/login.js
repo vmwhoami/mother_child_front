@@ -9,6 +9,7 @@ import css from '../../css/logreg.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.loginReducer);
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const [email, setEmail] = useState('');
@@ -44,7 +45,7 @@ const Login = () => {
   }
   return (
     <Layout>
-      <div className={css.container}>
+      <div className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
           <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
             <div className={css.formfield}>

@@ -10,6 +10,7 @@ import Layout from '../Layout';
 const Doctors = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.loginReducer);
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.doctorReducer);
   const { loading, filter } = state;
   const { loggedIn } = user;
@@ -26,7 +27,7 @@ const Doctors = () => {
   }
   return (
     <Layout>
-      <div className="container">
+      <div className={navbar ? 'container nomargin' : 'container'}>
         <h1>Our Doctors</h1>
         <FilterDoctors
           types={types}

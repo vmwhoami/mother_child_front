@@ -9,6 +9,7 @@ import { Logo } from './Svgs';
 
 const Nav = () => {
   const state = useSelector((state) => state.loginReducer);
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const dispatch = useDispatch();
   const { loggedIn } = state;
   const getAppointments = () => {
@@ -16,10 +17,9 @@ const Nav = () => {
     dispatch(getAllMyAppoint(appointment));
   };
   return (
-    <div className="navigation">
-      <div className="burgercont">
-        <div className="burger" />
-      </div>
+    <div
+      className={navbar ? 'navigation' : 'navigation active'}
+    >
       <div>
         <Logo style={css.logo} />
       </div>

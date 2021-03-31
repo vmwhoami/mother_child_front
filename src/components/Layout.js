@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Nav from './component/Nav';
 import { autoLogin } from '../redux/login/loginActions';
 import { getDoctors } from '../redux/doctors/doctorActions';
+import { ToggleNav } from '../redux/registration/registationActions';
 // import css from '../css/layout.module.css';
 
 const Layout = ({ children }) => {
@@ -20,6 +21,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Nav />
+      <button className="burgercont" type="button" onClick={() => dispatch(ToggleNav())}>
+        <div className="burger" />
+      </button>
       {children}
     </>
   );

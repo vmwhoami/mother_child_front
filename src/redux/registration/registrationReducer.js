@@ -1,8 +1,11 @@
-import { REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS } from './registrationActTypes';
+import {
+  REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS, NAVSWITCH,
+} from './registrationActTypes';
 
 const initial = {
   user: null,
   errors: [],
+  navbar: false,
 };
 const registrationReducer = (state = initial, action) => {
   switch (action.type) {
@@ -12,6 +15,8 @@ const registrationReducer = (state = initial, action) => {
       return { ...state, errors: action.payload };
     case CLEAR_ERRORS:
       return { ...state, errors: [] };
+    case NAVSWITCH:
+      return { ...state, navbar: !state.navbar };
     default:
       return state;
   }

@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS } from './registrationActTypes';
+import {
+  REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS, NAVSWITCH,
+} from './registrationActTypes';
 
 const config = {
   headers: {
@@ -20,6 +22,10 @@ const clearErrors = () => ({
   type: CLEAR_ERRORS,
 });
 
+const ToggleNav = () => ({
+  type: NAVSWITCH,
+});
+
 const register = (user) => async (dispatch) => {
   const url = 'https://mother-child-api.herokuapp.com/api/v1/users';
 
@@ -37,5 +43,5 @@ const register = (user) => async (dispatch) => {
 };
 
 export {
-  register, registerSuccess, registerFailure, clearErrors,
+  register, registerSuccess, registerFailure, clearErrors, ToggleNav,
 };
