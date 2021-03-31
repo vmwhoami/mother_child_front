@@ -5,7 +5,7 @@ import {
 const initial = {
   user: null,
   errors: [],
-  navbar: false,
+  navbar: true,
 };
 const registrationReducer = (state = initial, action) => {
   switch (action.type) {

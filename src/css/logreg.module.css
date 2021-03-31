@@ -7,11 +7,12 @@
 }
 
 .formcont {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 35vw;
-  height: 40vh;
+  width: 350px;
+ 
 }
 
 .formcont h4 {

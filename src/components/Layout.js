@@ -21,9 +21,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Nav />
-      <button className="burgercont" type="button" onClick={() => dispatch(ToggleNav())}>
-        <div className="burger" />
-      </button>
+      <button className="burgercont" type="button" onClick={() => dispatch(ToggleNav())}>T</button>
       {children}
     </>
   );

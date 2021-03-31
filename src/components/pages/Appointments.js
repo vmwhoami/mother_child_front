@@ -10,6 +10,7 @@ import { getAllMyAppoint } from '../../redux/appointments/appointActions';
 const Appointments = () => {
   const state = useSelector((state) => state.appointReducer);
   const user = useSelector((state) => state.loginReducer);
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const dispatch = useDispatch();
   if (!user.loggedIn) {
     return <Redirect to="/login" />;
@@ -33,7 +34,7 @@ const Appointments = () => {
   }
   return (
     <Layout>
-      <div className="container">
+      <div className={navbar ? 'container nomargin' : 'container'}>
         <h2>My appointments</h2>
         {myAppoint.map((appoint) => (
           <Appoint

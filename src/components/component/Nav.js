@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Footer from './Footer';
 import css from '../../css/nav.module.css';
 import { logout } from '../../redux/login/loginActions';
+import { ToggleNav } from '../../redux/registration/registationActions';
 import { getAllMyAppoint } from '../../redux/appointments/appointActions';
 import { Logo } from './Svgs';
 
@@ -20,6 +21,9 @@ const Nav = () => {
     <div
       className={navbar ? 'navigation' : 'navigation active'}
     >
+      <button type="button" className="cross" onClick={() => dispatch(ToggleNav())}>
+        <div className="crossign" />
+      </button>
       <div>
         <Logo style={css.logo} />
       </div>
