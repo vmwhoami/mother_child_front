@@ -1,11 +1,17 @@
 import axios from 'axios';
-import { DOCTORS_SUCCESS, DOCTORS_FAILURE, SELECTED_DOCTOR } from './doctorActTypes';
+import {
+  DOCTORS_SUCCESS, DOCTORS_FAILURE, SELECTED_DOCTOR, FILTER,
+} from './doctorActTypes';
 
 const selectedDoc = (id) => ({
   type: SELECTED_DOCTOR,
   payload: id,
 });
 
+const filterByType = (str) => ({
+  type: FILTER,
+  payload: str,
+});
 const getDoctorsSuccess = (doctors) => ({
   type: DOCTORS_SUCCESS,
   payload: doctors,
@@ -21,5 +27,5 @@ const getDoctors = () => async (dispatch) => {
 };
 
 export {
-  getDoctors, getDoctorsSuccess, getDoctorsFailure, selectedDoc,
+  getDoctors, getDoctorsSuccess, getDoctorsFailure, selectedDoc, filterByType,
 };
