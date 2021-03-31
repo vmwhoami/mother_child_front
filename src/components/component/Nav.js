@@ -17,6 +17,9 @@ const Nav = () => {
   };
   return (
     <div className="navigation">
+      <div className="burgercont">
+        <div className="burger" />
+      </div>
       <div>
         <Logo style={css.logo} />
       </div>

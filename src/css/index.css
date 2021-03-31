@@ -52,7 +52,19 @@ code {
   background-color: white;
   transition: 850ms;
 }
-
+.burgercont{
+  position: fixed;
+  top: 10%;
+  left: 10%;
+}
+.burger{
+  width: 50px;
+  min-height: 15px;
+  background-color: #10bbb5;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
 .active {
   background-color: #10bbb5;
 }
