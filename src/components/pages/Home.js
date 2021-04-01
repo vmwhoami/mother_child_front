@@ -16,13 +16,13 @@ const Home = () => {
 
   return (
     <Layout>
-      <div className={navbar ? 'container nomargin' : 'container'}>
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>Doctors</h1>
         <div className="doctors">
           {loading ? <Loading /> : state.doctors.slice(0, 4)
             .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
         </div>
-      </div>
+      </main>
 
     </Layout>
   );

@@ -18,7 +18,7 @@ const Nav = () => {
     dispatch(getAllMyAppoint(appointment));
   };
   return (
-    <div
+    <aside
       className={navbar ? 'navigation' : 'navigation active'}
     >
       <button type="button" className="cross" onClick={() => dispatch(ToggleNav())}>
@@ -44,7 +44,7 @@ const Nav = () => {
 
       </nav>
       <Footer />
-    </div>
+    </aside>
   );
 };
 

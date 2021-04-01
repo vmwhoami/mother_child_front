@@ -27,7 +27,7 @@ const Doctors = () => {
   }
   return (
     <Layout>
-      <div className={navbar ? 'container nomargin' : 'container'}>
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>Our Doctors</h1>
         <FilterDoctors
           types={types}
@@ -47,7 +47,7 @@ const Doctors = () => {
 
               ))}
         </div>
-      </div>
+      </main>
     </Layout>
   );
 };

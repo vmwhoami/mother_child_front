@@ -11,6 +11,7 @@ const Registration = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.registrationReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
+
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -59,13 +60,16 @@ const Registration = () => {
     resetValues();
   };
   const genders = ['masculine', 'feminine'];
+  if (state.user) {
+    return <Redirect to="/login" />;
+  }
 
   if (loggedIn) {
     return <Redirect to="/" />;
   }
   return (
     <Layout>
-      <div className={navbar ? 'container nomargin' : 'container'}>
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
           <form onSubmit={(e) => handleSubmit(e)}>
             <div className={css.formfield}>
@@ -101,7 +105,7 @@ const Registration = () => {
 
           {state.user ? <SuccessHandler message="Registration" /> : null}
         </div>
-      </div>
+      </main>
 
     </Layout>
   );

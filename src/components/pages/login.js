@@ -45,7 +45,7 @@ const Login = () => {
   }
   return (
     <Layout>
-      <div className={navbar ? 'container nomargin' : 'container'}>
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
           <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
             <div className={css.formfield}>
@@ -68,7 +68,7 @@ const Login = () => {
 
           {state.user ? <SuccessHandler message="Login" /> : null}
         </div>
-      </div>
+      </main>
     </Layout>
   );
 };

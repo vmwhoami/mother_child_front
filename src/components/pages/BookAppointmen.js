@@ -43,7 +43,7 @@ const BookAppointmen = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <main className="container">
         <h1>
           {`Book an appointment with ${name.split(' ')[0]}`}
         </h1>
@@ -86,7 +86,7 @@ const BookAppointmen = () => {
           </aside>
         </div>
 
-      </div>
+      </main>
     </Layout>
   );
 };

@@ -34,7 +34,7 @@ const Appointments = () => {
   }
   return (
     <Layout>
-      <div className={navbar ? 'container nomargin' : 'container'}>
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <h2>My appointments</h2>
         {myAppoint.map((appoint) => (
           <Appoint
@@ -42,7 +42,7 @@ const Appointments = () => {
             appoint={appoint}
           />
         ))}
-      </div>
+      </main>
     </Layout>
   );
 };
