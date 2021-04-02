@@ -68,6 +68,9 @@ const BookAppointmen = () => {
               <p>{`Receiving hours: ${hours}`}</p>
             </span>
             <span>
+              Pick date:
+              {' '}
+              {' '}
               <DatePicker
                 showTimeSelect
                 selected={startDate}

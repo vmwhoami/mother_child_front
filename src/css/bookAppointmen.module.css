@@ -51,8 +51,23 @@
   align-items: center;
 }
 
+.aside span:nth-child(6) {
+  background-color: #e2e3e5;
+  position: relative;
+  height: 50px;
+  cursor: pointer;
+  transition: all 350ms;
+}
+
+.aside span:nth-child(6):hover {
+  background-color: #0fbbb6;
+}
+
 .aside input {
-  padding: 5px;
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: 2px solid #bbbcbe;
+  cursor: pointer;
 }
 
 .btn {
