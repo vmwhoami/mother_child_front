@@ -12,6 +12,7 @@ const BookAppointmen = () => {
   const user = useSelector((state) => state.loginReducer);
   const doctor = useSelector((state) => state.doctorReducer.selected);
   const appoint = useSelector((state) => state.appointReducer);
+  const navbar = useSelector((state) => state.registrationReducer.navbar);
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
   const { message } = appoint;
@@ -43,7 +44,7 @@ const BookAppointmen = () => {
 
   return (
     <Layout>
-      <main className="container">
+      <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>
           {`Book an appointment with ${name.split(' ')[0]}`}
         </h1>

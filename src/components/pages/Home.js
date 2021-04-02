@@ -29,6 +29,17 @@ const Home = () => {
       dispatch(zeroIndex());
     }
   }, [state.index]);
+
+  useEffect(() => {
+    const slider = setInterval(() => {
+      dispatch(increment());
+    }, 3000);
+    return () => clearInterval(slider);
+  }, [state.index]);
+
+  const shuffled = state.doctors.sort(() => 0.5 - Math.random());
+  const selected = shuffled.slice(0, 6);
+
   return (
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
@@ -39,7 +50,7 @@ const Home = () => {
           <div className="home">
             <button className="increment" type="button" onClick={() => dispatch(increment())}>&#8250;</button>
             {' '}
-            {state.doctors.slice(0, 4)
+            {selected
               .map((doctor, docIndex) => (
                 <Doctor
                   key={doctor.id}

@@ -4,6 +4,12 @@
   margin-top: 100px;
 }
 
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
 .imgcont {
   width: 70vw;
   height: 80vh;
@@ -19,6 +25,12 @@
   margin-right: 100px;
   max-width: 400px;
   align-items: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .aside {
+    margin-right: 0;
+  }
 }
 
 .aside span {
