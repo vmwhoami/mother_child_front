@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import { login } from '../../redux/login/loginActions';
 import SuccessHandler from '../component/SuccessHandler';
+import { clearRedirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import Layout from '../Layout';
 import css from '../../css/logreg.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();
+  dispatch(clearRedirect());
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.loginReducer);
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);

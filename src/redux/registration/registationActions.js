@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-  REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS, NAVSWITCH,
+  REGISTRATION_SUCCESS, REGISTER_FAILURE, CLEAR_ERRORS, NAVSWITCH, REDIRECT, CLEAR_REDIRECT,
 } from './registrationActTypes';
 
 const config = {
@@ -26,6 +26,19 @@ const ToggleNav = () => ({
   type: NAVSWITCH,
 });
 
+const redirectCall = () => ({
+  type: REDIRECT,
+});
+const clearRedirect = () => ({
+  type: CLEAR_REDIRECT,
+});
+
+const redirect = () => async (dispatch) => {
+  setTimeout(() => {
+    dispatch(redirectCall());
+  }, 2000);
+};
+
 const register = (user) => async (dispatch) => {
   const url = 'https://mother-child-api.herokuapp.com/api/v1/users';
 
@@ -43,5 +56,11 @@ const register = (user) => async (dispatch) => {
 };
 
 export {
-  register, registerSuccess, registerFailure, clearErrors, ToggleNav,
+  register,
+  registerSuccess,
+  registerFailure,
+  clearErrors,
+  ToggleNav,
+  redirect,
+  clearRedirect,
 };

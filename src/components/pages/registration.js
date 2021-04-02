@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { register, clearErrors } from '../../redux/registration/registationActions';
+import { register, clearErrors, redirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import SuccessHandler from '../component/SuccessHandler';
 import Layout from '../Layout';
@@ -62,7 +62,11 @@ const Registration = () => {
   const genders = ['masculine', 'feminine'];
 
   if (state.user) {
-    setTimeout(() => <Redirect to="/login" />, 2000);
+    dispatch(redirect());
+
+    if (state.redirect) {
+      return <Redirect to="/login" />;
+    }
   }
 
   if (loggedIn) {
