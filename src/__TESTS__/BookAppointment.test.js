@@ -27,41 +27,17 @@ describe('Doctor', () => {
 
 describe('checks if Navbar component renders correctly', () => {
   test('should renders correct text', () => {
-    const ren = render(
+    const { container } = render(
       <BrowserRouter>
         <Provider store={store}>
           <BookAppointment />
         </Provider>
       </BrowserRouter>,
     );
-    console.log(ren);
-    const text = screen.getByText('Full name');
 
-    expect(text).toBeInTheDocument();
+    container.querySelector('.container')
+    expect(container.firstChild).toMatchSnapshot()
   });
 
-  // test('should renders correct text', () => {
-  //   render(
-  //     <BrowserRouter>
-  //       <Provider store={store}>
-  //         <Home />
-  //       </Provider>
-  //     </BrowserRouter>,
-  //   );
-  //   const text = screen.getByText('Quote');
-  //   expect(text).toBeInTheDocument();
-  // });
 
-  // test('should render correctly', () => {
-  //   const tree = renderer
-  //     .create(
-  //       <BrowserRouter>
-  //         <Provider store={store}>
-  //           <Home />
-  //         </Provider>
-  //       </BrowserRouter>, ``,
-  //     )
-  //     .toJSON();
-  //   expect(tree).toMatchSnapshot();
-  // });
 });

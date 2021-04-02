@@ -71,7 +71,7 @@ const Registration = () => {
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
-          <form onSubmit={(e) => handleSubmit(e)}>
+          <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
             <div className={css.formfield}>
               <input name="fullname" type="text" value={fullname} onChange={(e) => handleChange(e)} placeholder="Full Name" />
             </div>
