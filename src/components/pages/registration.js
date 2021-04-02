@@ -60,8 +60,9 @@ const Registration = () => {
     resetValues();
   };
   const genders = ['masculine', 'feminine'];
+
   if (state.user) {
-    return <Redirect to="/login" />;
+    setTimeout(() => <Redirect to="/login" />, 2000);
   }
 
   if (loggedIn) {

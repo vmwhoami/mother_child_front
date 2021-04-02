@@ -18,10 +18,15 @@ const Home = () => {
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>Doctors</h1>
-        <div className="doctors">
-          {loading ? <Loading /> : state.doctors.slice(0, 4)
-            .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
-        </div>
+
+        {loading ? <Loading /> : (
+          <div className="doctors">
+            {' '}
+            { state.doctors.slice(0, 4)
+              .map((doctor) => <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />)}
+          </div>
+        )}
+
       </main>
 
     </Layout>

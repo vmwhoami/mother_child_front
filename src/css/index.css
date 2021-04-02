@@ -78,7 +78,7 @@ code {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid #10bbb5;
+  border: 2px solid #444;
   cursor: pointer;
   top: 1%;
   right: 5%;
@@ -88,6 +88,7 @@ code {
 
 .cross:hover {
   transform: rotate(45deg);
+  border: 2px solid #10bbb5;
 }
 
 .crossign {
@@ -97,7 +98,7 @@ code {
   transform: translate(-50%, -50%) rotate(45deg);
   width: 20px;
   height: 2px;
-  background-color: #10bbb5;
+  background-color: #434343;
 }
 
 .crossign::before {
@@ -108,7 +109,7 @@ code {
   content: "";
   width: 20px;
   height: 2px;
-  background-color: #10bbb5;
+  background-color: #434343;
 }
 
 .burgercont {
@@ -122,6 +123,7 @@ code {
   background: none;
   border: none;
   outline: none;
+  color: transparent;
 }
 
 .burgercont::before {
@@ -129,8 +131,9 @@ code {
   content: "";
   width: 50px;
   height: 15px;
-  background-color: #10bbb5;
+  background-color: #434343;
   border-radius: 40px;
+  transition: all 350ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
 .burgercont::after {
@@ -140,18 +143,20 @@ code {
   height: 15px;
   margin-top: 20px;
   left: 0;
-  background-color: #10bbb5;
+  background-color: #434343;
   z-index: 100;
   border-radius: 40px;
   transition: all 350ms cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 
-.burgercont:hover .burger {
-  transform: translateY(-10px);
+.burgercont:hover.burgercont::before {
+  transform: translateY(-5px);
+  background-color: #10bbb5;
 }
 
-.burgercont:hover .burger::before {
-  transform: translateY(10px);
+.burgercont:hover.burgercont::after {
+  transform: translateY(5px);
+  background-color: #10bbb5;
 }
 
 nav {
