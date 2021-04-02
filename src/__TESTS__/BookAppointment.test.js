@@ -1,14 +1,10 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import BookAppointment from '../components/pages/BookAppointmen';
-import store from '../redux/store'
-// import * as reactRedux from 'react-redux'
-
-// jest.spyOn(reactRedux, 'useDispatch');
-
+import store from '../redux/store';
 
 describe('Doctor', () => {
   test('snapshot renders correctly', () => {
@@ -24,7 +20,6 @@ describe('Doctor', () => {
   });
 });
 
-
 describe('checks if Navbar component renders correctly', () => {
   test('should renders correct text', () => {
     const { container } = render(
@@ -35,9 +30,7 @@ describe('checks if Navbar component renders correctly', () => {
       </BrowserRouter>,
     );
 
-    container.querySelector('.container')
-    expect(container.firstChild).toMatchSnapshot()
+    container.querySelector('.container');
+    expect(container.firstChild).toMatchSnapshot();
   });
-
-
 });
