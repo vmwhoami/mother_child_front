@@ -71,6 +71,7 @@ code {
 
 .navigation.active {
   left: 0%;
+  z-index: 20;
 }
 
 .cross {
@@ -200,6 +201,7 @@ nav a:hover {
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #e4e5e9;
+  transition: all 350ms;
 }
 
 .doctor h4 {
@@ -249,8 +251,82 @@ nav a:hover {
   align-items: center;
 }
 
+.catSelect {
+  margin-left: 20px;
+  padding: 5px;
+}
+
 .loading span {
   font-size: 28px;
   color: #10bbb5;
   text-transform: uppercase;
 }
+
+/* Carousel slider */
+.increment,
+.decrement {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  font-size: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+.increment {
+  right: 0;
+}
+
+.decrement {
+  left: 0;
+}
+
+.increment:hover {
+  color: #10bbb5;
+}
+
+.decrement:hover {
+  color: #10bbb5;
+}
+
+.home {
+  margin: 0 auto;
+  margin-top: 4rem;
+  width: 80vw;
+  height: 500px;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.home .doctor {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.home .doctor.activeslide {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home .doctor.lastslide {
+  transform: translateX(-100%);
+}
+
+.home .doctor.nextslide {
+  transform: translateX(100%);
+}
+
+/* Carousel slider */

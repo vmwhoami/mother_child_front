@@ -1,7 +1,25 @@
 import axios from 'axios';
 import {
-  DOCTORS_SUCCESS, DOCTORS_FAILURE, SELECTED_DOCTOR, FILTER,
+  DOCTORS_SUCCESS, DOCTORS_FAILURE, SELECTED_DOCTOR, FILTER, INCREMENT, DECREMENT, SET_INDEX,
+  ZERO_INDEX,
 } from './doctorActTypes';
+
+const increment = () => ({
+  type: INCREMENT,
+});
+
+const decrement = () => ({
+  type: DECREMENT,
+});
+
+const setIndex = (num) => ({
+  type: SET_INDEX,
+  payload: num,
+});
+
+const zeroIndex = () => ({
+  type: ZERO_INDEX,
+});
 
 const selectedDoc = (id) => ({
   type: SELECTED_DOCTOR,
@@ -27,5 +45,13 @@ const getDoctors = () => async (dispatch) => {
 };
 
 export {
-  getDoctors, getDoctorsSuccess, getDoctorsFailure, selectedDoc, filterByType,
+  getDoctors,
+  getDoctorsSuccess,
+  getDoctorsFailure,
+  selectedDoc,
+  filterByType,
+  increment,
+  decrement,
+  setIndex,
+  zeroIndex,
 };
