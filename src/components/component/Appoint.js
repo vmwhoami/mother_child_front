@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-
 import PropTypes from 'prop-types';
 import { delAppoinFromRedux, deletAppoint } from '../../redux/appointments/appointActions';
 import css from '../../css/appoint.module.css';
@@ -26,7 +24,7 @@ const Appoint = ({
   };
 
   return (
-    <div className={css.card}>
+    <section className={css.card}>
       <div className={css.left}>
         <h4>{`Doctors name: ${name}`}</h4>
         <h3>{title}</h3>
@@ -47,7 +45,7 @@ const Appoint = ({
         <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
       </div>
 
-    </div>
+    </section>
   );
 };
 

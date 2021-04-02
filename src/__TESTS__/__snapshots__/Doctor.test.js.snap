@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Doctor snapshot renders correctly 1`] = `
+<div
+  className="doctor"
+>
+  <div
+    className="docimgContainer"
+  >
+    <img
+      className="docimg"
+    />
+  </div>
+  <h4 />
+  <span />
+  <p>
+    Receiving hours: undefined
+  </p>
+  <a
+    href="/undefined"
+    onClick={[Function]}
+  >
+    <button
+      className="button"
+      type="button"
+    >
+      Book an appointment
+    </button>
+  </a>
+</div>
+`;
