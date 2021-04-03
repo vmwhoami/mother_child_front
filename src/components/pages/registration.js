@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import { register, clearErrors, redirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import SuccessHandler from '../component/SuccessHandler';
 import Layout from '../Layout';
 import css from '../../css/logreg.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
+toast.configure();
 const Registration = () => {
   const dispatch = useDispatch();
+  const notify = () => toast('Wow so easy!');
   const state = useSelector((state) => state.registrationReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
-
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
   const [fullname, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -53,6 +56,7 @@ const Registration = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    notify();
     const user = {
       fullname, email, gender, age, password,
     };
@@ -74,6 +78,7 @@ const Registration = () => {
   }
   return (
     <Layout>
+      <ToastContainer />
       <main className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
           <form className={css.form} onSubmit={(e) => handleSubmit(e)}>

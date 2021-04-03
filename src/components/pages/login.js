@@ -47,6 +47,7 @@ const Login = () => {
   }
   return (
     <Layout>
+
       <main className={navbar ? 'container nomargin' : 'container'}>
         <div className={css.formcont}>
           <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
