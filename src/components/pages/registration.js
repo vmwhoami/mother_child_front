@@ -1,64 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+// , { useEffect }
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { register, clearErrors, redirect } from '../../redux/registration/registationActions';
+import { register, redirect } from '../../redux/registration/registationActions';
+// clearErrors,
 import ErrorHandler from '../component/ErrorHandler';
 import SuccessHandler from '../component/SuccessHandler';
 import Layout from '../Layout';
-import { useForm } from "react-hook-form";
+import useForm from '../component/useForm';
 import css from '../../css/logreg.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = () => {
+  const { handleChange, values } = useForm();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.registrationReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);
-  const [fullname, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [gender, setGender] = useState('gender');
-  const [age, setAge] = useState(0);
-  const [password, setPassword] = useState('');
-  const clearErr = () => dispatch(clearErrors());
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case 'fullname':
-        return setFullName(value);
-      case 'email':
-        return setEmail(value);
-      case 'gender':
-        return setGender(value);
-      case 'age':
-        return setAge(value);
-      case 'password':
-        return setPassword(value);
-      default:
-        break;
-    }
-    return null;
-  };
 
-  useEffect(() => {
-    if (state.user) {
-      clearErr();
-    }
-  }, [state.user]);
-  const resetValues = () => {
-    setFullName('');
-    setEmail('');
-    setGender('');
-    setAge('');
-    setPassword('');
-  };
+  // useEffect(() => {
+  //   if (state.user) {
+  //     clearErr();
+  //   }
+  // }, [state.user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const {
+      fullname, email, gender, age, password,
+    } = values;
+    console.log(fullname);
     const user = {
       fullname, email, gender, age, password,
     };
     dispatch(register(user));
-    resetValues();
   };
   const genders = ['masculine', 'feminine'];
 
@@ -79,28 +54,33 @@ const Registration = () => {
         <div className={css.formcont}>
           <form className={css.form} onSubmit={(e) => handleSubmit(e)}>
             <div className={css.formfield}>
-              <input name="fullname" type="text" value={fullname} onChange={(e) => handleChange(e)} placeholder="Full Name" />
+              <input name="fullname" type="text" value={values.fullname} onChange={handleChange} placeholder="Full Name" />
             </div>
             <div className={css.formfield}>
-              <input name="email" type="text" value={email} onChange={(e) => handleChange(e)} placeholder="Email" />
-            </div>
-
-            <div className={css.formfield}>
-              <span>Gender</span>
-              <select name="gender" className={gender} onClick={(e) => handleChange(e)}>
-                {genders.map((gen) => (
-                  <option key={gen} value={gen}>{gen}</option>
-                ))}
-              </select>
+              <input name="email" type="text" value={values.email} onChange={handleChange} placeholder="Email" />
             </div>
 
             <div className={css.formfield}>
-              <span>Age in years</span>
-              <input name="age" type="number" value={age} onChange={(e) => handleChange(e)} />
+
+              <label htmlFor="gender">
+                Gender
+                <select id="gender" name="gender" className={css.gender} onClick={handleChange}>
+                  {genders.map((gen) => (
+                    <option key={gen} value={values.gen}>{gen}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div className={css.formfield}>
+              <label htmlFor="age">
+                Age in years
+                <input id="age" name="age" type="number" value={values.age} onChange={handleChange} />
+              </label>
 
             </div>
             <div className={css.formfield}>
-              <input name="password" type="password" value={password} onChange={(e) => handleChange(e)} placeholder="Password" />
+              <input name="password" type="password" value={values.password} onChange={handleChange} placeholder="Password" />
             </div>
 
             <div className={css.formfield}>
