@@ -11,13 +11,17 @@ const useForm = () => {
   // const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    const { name, values } = e.target;
+    const { name, value } = e.target;
     setValues({
       ...values,
-      [name]: values,
+      [name]: value,
     });
   };
-  return [handleChange, values];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  return [handleChange, values, handleSubmit];
 };
 
 export default useForm;

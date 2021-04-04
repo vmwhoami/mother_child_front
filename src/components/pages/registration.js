@@ -12,7 +12,7 @@ import css from '../../css/logreg.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = () => {
-  const { handleChange, values } = useForm();
+  const [handleChange, values] = useForm();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.registrationReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
@@ -23,16 +23,15 @@ const Registration = () => {
   //     clearErr();
   //   }
   // }, [state.user]);
-  console.log(values);
   const handleSubmit = (e) => {
     e.preventDefault();
     const {
       fullname, email, gender, age, password,
     } = values;
-    console.log(fullname);
     const user = {
       fullname, email, gender, age, password,
     };
+    console.log(user);
     dispatch(register(user));
   };
   const genders = ['masculine', 'feminine'];
