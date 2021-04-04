@@ -23,7 +23,7 @@ const Registration = () => {
   //     clearErr();
   //   }
   // }, [state.user]);
-
+  console.log(values);
   const handleSubmit = (e) => {
     e.preventDefault();
     const {
