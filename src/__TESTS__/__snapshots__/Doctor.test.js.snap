@@ -2,7 +2,7 @@
 
 exports[`Doctor snapshot renders correctly 1`] = `
 <div
-  className="doctor"
+  className="doctor activeslide"
 >
   <div
     className="docimgContainer"
