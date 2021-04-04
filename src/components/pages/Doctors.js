@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { selectedDoc, filterByType } from '../../redux/doctors/doctorActions';
 import FilterDoctors from '../component/FilterDoctors';
 import Doctor from '../component/Doctor';
@@ -9,11 +8,9 @@ import Layout from '../Layout';
 
 const Doctors = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.loginReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.doctorReducer);
   const { loading, filter } = state;
-  const { loggedIn } = user;
   const selectDoc = (id) => {
     dispatch(selectedDoc(id));
   };
@@ -22,9 +19,6 @@ const Doctors = () => {
   const handleFilterChange = (str) => {
     dispatch(filterByType(str));
   };
-  if (!loggedIn) {
-    return <Redirect to="/login" />;
-  }
   return (
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
