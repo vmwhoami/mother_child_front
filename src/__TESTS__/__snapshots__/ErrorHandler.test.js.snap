@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Error correctly 1`] = `
+<div
+  className="erorrs"
+>
+  <span
+    className="error"
+  >
+    First error
+  </span>
+  <span
+    className="error"
+  >
+    Second error
+  </span>
+</div>
+`;

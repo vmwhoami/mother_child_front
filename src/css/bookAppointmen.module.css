@@ -1,0 +1,97 @@
+
+.container {
+  display: flex;
+  margin-top: 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+.imgcont {
+  width: 70vw;
+  height: 80vh;
+}
+
+.imgcont img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.aside {
+  margin-right: 100px;
+  max-width: 400px;
+  align-items: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .aside {
+    margin-right: 0;
+  }
+}
+
+.aside span {
+  width: 100%;
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.aside span:nth-child(odd) {
+  background-color: #e2e3e5;
+}
+
+.aside span:last-child {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aside span:nth-child(6) {
+  background-color: #e2e3e5;
+  position: relative;
+  height: 50px;
+  cursor: pointer;
+  transition: all 350ms;
+}
+
+.aside span:nth-child(6):hover {
+  background-color: #0fbbb6;
+}
+
+.aside input {
+  padding: 10px 50px;
+  border-radius: 5px;
+  border: 2px solid #bbbcbe;
+  cursor: pointer;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  text-transform: uppercase;
+  transition: 850ms;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  background-color: #0fbbb6;
+}
+
+.imput {
+  border: none;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
