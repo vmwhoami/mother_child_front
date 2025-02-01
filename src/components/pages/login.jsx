@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect, Link } from 'react-router-dom';
+import { Navigate , Link } from 'react-router-dom';
 import { login } from '../../redux/login/loginActions';
 import SuccessHandler from '../component/SuccessHandler';
 import { clearRedirect } from '../../redux/registration/registationActions';
@@ -43,7 +43,7 @@ const Login = () => {
     resetValues();
   };
   if (loggedIn) {
-    return <Redirect to="/" />;
+    return <Navigate  to="/" />;
   }
   return (
     <Layout>

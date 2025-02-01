@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Loading from '../component/Loading';
 import Layout from '../Layout';
@@ -12,15 +12,16 @@ const Appointments = () => {
   const user = useSelector((state) => state.loginReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const dispatch = useDispatch();
-  if (!user.loggedIn) {
-    return <Redirect to="/login" />;
-  }
-
   useEffect(() => {
     if (user.loggedIn) {
       dispatch(getAllMyAppoint({ user: user.user.id }));
     }
-  }, []);
+  }, [dispatch, user.loggedIn, user.user.id]);
+
+  if (!user.loggedIn) {
+    return <Navigate to="/login" />;
+  }
+ 
 
   const { myAppoint } = state;
   if (myAppoint.length < 1) {

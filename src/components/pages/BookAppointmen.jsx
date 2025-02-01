@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import Layout from '../Layout';
 import { bookAnAppointment, callClearMessage } from '../../redux/appointments/appointActions';
 import css from '../../css/bookAppointmen.module.css';
@@ -18,7 +18,7 @@ const BookAppointmen = () => {
   const { message } = appoint;
   const { loggedIn } = user;
   if (!loggedIn) {
-    return <Redirect to="/login" />;
+    return <Navigate to="/login" />;
   }
   const {
     id, name, title, info, room, recieving_hours: hours, img,

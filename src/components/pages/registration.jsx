@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { register, clearErrors, redirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import SuccessHandler from '../component/SuccessHandler';
@@ -42,7 +42,7 @@ const Registration = () => {
     if (state.user) {
       clearErr();
     }
-  }, [state.user]);
+  }, [state.user, clearErr]);
   const resetValues = () => {
     setFullName('');
     setEmail('');
@@ -65,12 +65,12 @@ const Registration = () => {
     dispatch(redirect());
 
     if (state.redirect) {
-      return <Redirect to="/login" />;
+      return <Navigate to="/login" />;
     }
   }
 
   if (loggedIn) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
   return (
     <Layout>

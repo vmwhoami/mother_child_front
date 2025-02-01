@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import Nav from './component/Nav';
@@ -12,11 +12,11 @@ const Layout = ({ children }) => {
   const user = useSelector((state) => state.loginReducer);
   useEffect(() => {
     dispatch(autoLogin());
-  }, [user.loggedIn]);
+  }, [dispatch, user.loggedIn]);
 
   useEffect(() => {
     dispatch(getDoctors());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

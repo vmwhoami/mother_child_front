@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+ 
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import BookAppointmen from './pages/BookAppointmen';
+// import BookAppointmen from './pages/BookAppointmen.jsx/index.jsx';
 import Errorpage from './pages/Errorpage';
 import Doctors from './pages/Doctors';
-import Appointments from './pages/Appointments';
+import Appointments from './pages/Appointments.jsx';
 import Registration from './pages/registration';
 import Login from './pages/login';
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
+      <Routes>
         <Route path="/" component={Home} exact />
         <Route path="/doctors" component={Doctors} />
         <Route path="/myAppointment" component={Appointments} />
@@ -19,10 +19,10 @@ function App() {
         <Route path="/register" component={Registration} />
         <Route path="/:id">
           {' '}
-          <BookAppointmen />
+          {/* <BookAppointmen /> */}
         </Route>
         <Route path="*" component={Errorpage} />
-      </Switch>
+      </Routes>
     </BrowserRouter>
   );
 }
