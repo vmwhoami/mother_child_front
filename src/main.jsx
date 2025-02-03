@@ -1,21 +1,21 @@
-import React from 'react';
-import createRoot from 'react-dom';
-import { Provider } from 'react-redux';
-import App from './components/App';
-import './css/index.css';
-import reportWebVitals from './reportWebVitals';
-import store from './redux/store';
- 
-createRoot.render(
+import React from "react";
+import { createRoot } from "react-dom/client"; // ✅ Correct import
+import { Provider } from "react-redux";
+import App from "./components/App";
+import "./css/index.css";
+import reportWebVitals from "./reportWebVitals";
+import store from "./redux/store";
+
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement); // ✅ Use `createRoot`
+
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
+  </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// If you want to start measuring performance
 reportWebVitals();

@@ -5,7 +5,6 @@ const initial = {
   loggedIn: false,
   failure: null,
   errors: false,
-
 };
 
 const loginReducer = (state = initial, action) => {

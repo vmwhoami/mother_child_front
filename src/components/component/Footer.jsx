@@ -1,7 +1,6 @@
-import React from 'react';
 import css from '../../css/nav.module.css';
 import {
-  Gplus, Pinterest, Twitter, FaceBook,
+    Pinterest, Twitter, FaceBook,
 } from './Svgs';
 
 const Footer = () => (
@@ -13,9 +12,6 @@ const Footer = () => (
       </a>
       <a href="https://www.facebook.com/" target="blank">
         <FaceBook style={css.svg} />
-      </a>
-      <a href="https://myaccount.google.com/" target="blank">
-        <Gplus style={css.svg} />
       </a>
       <a href="https://www.pinterest.com/" target="blank">
         <Pinterest style={css.svg} />
