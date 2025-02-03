@@ -22,7 +22,7 @@ const logoutUSer = () => ({
 });
 
 const login = (credentials) => async (dispatch) => {
-  const url = 'https://mother-child-api.herokuapp.com/api/v1/login';
+  const url = 'http://localhost:3003/api/v1/login';
   axios({
     method: 'POST',
     url,
@@ -40,7 +40,7 @@ const login = (credentials) => async (dispatch) => {
 };
 
 const autoLogin = () => async (dispatch) => {
-  const url = 'https://mother-child-api.herokuapp.com/api/v1/auto_login';
+  const url = 'http://localhost:3003/api/v1/auto_login';
   const token = await localStorage.getItem('token');
 
   if (token) {

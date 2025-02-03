@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/doctors" element={<Doctors />} />
-        <Route path="/myAppointment" element={<Appointments />} />
+        <Route path="/myAppointment" element={<Appointments />} /> 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         {/* Correct nested route structure */}

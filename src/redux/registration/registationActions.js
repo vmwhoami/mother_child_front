@@ -40,7 +40,7 @@ const redirect = () => async (dispatch) => {
 };
 
 const register = (user) => async (dispatch) => {
-  const url = 'https://mother-child-api.herokuapp.com/api/v1/users';
+  const url = 'http://localhost:3003/api/v1/users';
 
   axios({
     method: 'POST',

@@ -3,7 +3,7 @@ import {
   GET_APT_SUCCESS, GET_APT_FAIL, DEL_FROM_REDUX, DELL_SUCCESS, NEW_APPOINTMENT, CLEAR_MESSAGE,
 } from './appointActTypes';
 
-const url = 'https://mother-child-api.herokuapp.com/api/v1/';
+const url = 'http://localhost:3003/api/v1/';
 
 const gotAppointFail = (err) => ({
   type: GET_APT_FAIL,

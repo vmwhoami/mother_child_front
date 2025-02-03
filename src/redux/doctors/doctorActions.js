@@ -39,7 +39,7 @@ const getDoctorsFailure = () => ({
   type: DOCTORS_FAILURE,
 });
 const getDoctors = () => async (dispatch) => {
-  const url = 'https://mother-child-api.herokuapp.com/api/v1/doctors';
+  const url = 'http://localhost:3003/api/v1/doctors';
   axios.get(url).then(({ data }) => dispatch(getDoctorsSuccess(data)))
     .catch(() => dispatch(getDoctorsFailure()));
 };
