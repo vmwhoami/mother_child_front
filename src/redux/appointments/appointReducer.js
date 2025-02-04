@@ -10,7 +10,7 @@ import {
 } from './appointActTypes';
 
 const init = {
-  myAppoint: [],
+  myapointments: [],
   error: false,
   message: null,
   loading: true,
@@ -20,7 +20,7 @@ const appointReducer = (state = init, action) => {
   switch (action.type) {
     case GET_APT_SUCCESS:
       return {
-        ...state, myAppoint: action.payload, error: false, loading: false,
+        ...state, myapointments: action.payload, error: false, loading: false,
       };
     case GET_APT_FAIL:
       return { ...state, error: true };
@@ -31,7 +31,7 @@ const appointReducer = (state = init, action) => {
     case DEL_FROM_REDUX:
       return {
         ...state,
-        myAppoint: state.myAppoint
+        myapointments: state.myapointments
           .filter((appoint) => appoint.id !== action.payload.id),
       };
     case DELL_SUCCESS:

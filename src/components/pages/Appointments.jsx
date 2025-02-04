@@ -12,19 +12,20 @@ const Appointments = () => {
   const user = useSelector((state) => state.loginReducer);
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const dispatch = useDispatch();
+
   useEffect(() => {
-    if (user.loggedIn) {
+    if (user.loggedIn && user.user) {
       dispatch(getAllMyAppoint({ user: user.user.id }));
     }
-  }, [dispatch, user.loggedIn, user.user.id]);
+  }, [dispatch, user.loggedIn, user.user]); // Also add 'user.user' as a dependency
+ 
 
   if (!user.loggedIn) {
     return <Navigate to="/login" />;
   }
- 
-
-  const { myAppoint } = state;
-  if (myAppoint.length < 1) {
+console.log(state);
+  const { myapointments } = state;
+  if (myapointments.length < 1) {
     return (
       <div className="container">
         <Layout>
@@ -37,7 +38,7 @@ const Appointments = () => {
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <h2>My appointments</h2>
-        {myAppoint.map((appoint) => (
+        {myapointments.map((appoint) => (
           <Appoint
             key={appoint.id}
             appoint={appoint}

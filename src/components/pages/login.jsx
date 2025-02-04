@@ -7,10 +7,14 @@ import { clearRedirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import Layout from '../Layout';
 import css from '../../css/logreg.module.css';
+import { useEffect } from 'react';
 
 const Login = () => {
   const dispatch = useDispatch();
-  dispatch(clearRedirect());
+  useEffect(() => {
+    dispatch(clearRedirect());
+  }, [dispatch]);
+
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.loginReducer);
   const loggedIn = useSelector((state) => state.loginReducer.loggedIn);

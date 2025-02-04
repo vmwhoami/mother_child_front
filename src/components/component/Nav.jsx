@@ -29,18 +29,13 @@ const Nav = () => {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/doctors">Doctors</Link>
-        {loggedIn ? <Link to="/myAppointment" onClick={getAppointments}>Appointments</Link>
-          : <Link to="/register">Register</Link>}
+        {loggedIn ? <Link to="/allapp" onClick={getAppointments}>Appointments</Link> : <Link to="/register">Register</Link>}
         {!loggedIn ? <Link to="/login">Login</Link>
           : (
-            <Link
-              to="/"
-              onClick={() => dispatch(logout())}
-            >
+            <Link to="/" onClick={() => dispatch(logout())} >
               Logout
             </Link>
           )}
-
       </nav>
       <Footer />
     </aside>

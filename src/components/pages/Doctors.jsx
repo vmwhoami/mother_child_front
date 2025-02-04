@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectedDoc, filterByType } from '../../redux/doctors/doctorActions';
 import FilterDoctors from '../component/FilterDoctors';
@@ -14,7 +13,7 @@ const Doctors = () => {
   const selectDoc = (id) => {
     dispatch(selectedDoc(id));
   };
-
+  // console.log(state);
   const types = state.doctors.map((doc) => doc.title);
   const handleFilterChange = (str) => {
     dispatch(filterByType(str));
@@ -28,18 +27,13 @@ const Doctors = () => {
           handleFilterChange={handleFilterChange}
         />
         <div className="doctors">
-          {loading ? <Loading />
-            : state.doctors.filter((doc) => {
+          {loading ? <Loading /> : state.doctors.filter((doc) => {
               if (filter === 'All') {
                 return doc;
               }
               return doc.title === filter;
-            })
-              .map((doctor) => (
 
-                <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} />
-
-              ))}
+            }).map((doctor) => (<Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} /> ))}
         </div>
       </main>
     </Layout>

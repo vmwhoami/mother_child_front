@@ -1,4 +1,3 @@
-import React from 'react';
 import { Heart } from 'react-awesome-spinners';
 
 const Loading = () => {

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { register, clearErrors, redirect } from '../../redux/registration/registationActions';
+import { register,   redirect } from '../../redux/registration/registationActions';
 import ErrorHandler from '../component/ErrorHandler';
 import SuccessHandler from '../component/SuccessHandler';
 import Layout from '../Layout';
@@ -18,7 +18,7 @@ const Registration = () => {
   const [gender, setGender] = useState('gender');
   const [age, setAge] = useState(0);
   const [password, setPassword] = useState('');
-  const clearErr = () => dispatch(clearErrors());
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
@@ -40,9 +40,10 @@ const Registration = () => {
 
   useEffect(() => {
     if (state.user) {
-      clearErr();
+      dispatch(redirect());
     }
-  }, [state.user, clearErr]);
+  }, [state.user, dispatch]);
+
   const resetValues = () => {
     setFullName('');
     setEmail('');
