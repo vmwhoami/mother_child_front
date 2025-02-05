@@ -1,17 +1,15 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Doctor = ({
-  doctor, selectDoc, docIndex, docLength, index,
-}) => {
-  const {
-    name, title, img, id, recieving_hours: hours,
-  } = doctor;
+const Doctor = ({ doctor, selectDoc, docIndex, docLength, index }) => {
+  const { name, title, img, id, recieving_hours: hours } = doctor;
 
   let position = 'doctor nextslide';
+
   if (docIndex === index) {
     position = 'doctor activeslide';
   }
+
   if (docIndex === index - 1 || (index === 0 && docIndex === docLength - 1)) {
     position = 'doctor lastslide';
   }

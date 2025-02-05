@@ -19,15 +19,10 @@ const Home = () => {
   
   // Memoize derived data to prevent unnecessary recalculations
   const docLength = doctors.slice(0, 4).length;
-  
-  // Create a copy before sorting to avoid state mutation
-  const shuffled = [...doctors].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 6);
-
-  const selectDoc = (id) => {
-    dispatch(selectedDoc(id));
-  };
-
+  const shuffled = [...doctors].sort(() => 0.5 - Math.random()).slice(0, 6);
+ 
+  const selectDoc = (id) => { dispatch(selectedDoc(id)); };
+ 
   useEffect(() => {
     const lastIndex = docLength - 1;
     if (index < 0) {
@@ -38,43 +33,28 @@ const Home = () => {
     }
   }, [index, docLength, dispatch]);
 
-  useEffect(() => {
-    const slider = setInterval(() => {
-      dispatch(increment());
-    }, 3000);
+  useEffect(() => { const slider = setInterval(() => { dispatch(increment()); }, 90000);
     return () => clearInterval(slider);
-  }, [dispatch, index]); // Added missing dependencies
+  }, [dispatch, index]);
 
   return (
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>Doctors</h1>
 
-        {loading ? <Loading /> : (
+        {loading ? <Loading /> : 
+        (
           <div className="home">
-            <button 
-              className="increment" 
-              type="button" 
-              onClick={() => dispatch(increment())}
-            >
+            <button className="increment" type="button" onClick={() => dispatch(increment())} >
               &#8250;
             </button>
-            
-            {selected.map((doctor) => (
-              <Doctor
-                key={doctor.id}
-                doctor={doctor}
-                selectDoc={selectDoc}
-                docLength={docLength}
-                index={index}
-              />
+           
+            {shuffled.map((doctor) => (
+              
+              <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} docLength={docLength} index={index} />
             ))}
             
-            <button 
-              className="decrement" 
-              type="button" 
-              onClick={() => dispatch(decrement())}
-            >
+            <button className="decrement" type="button" onClick={() => dispatch(decrement())}>
               &#8249;
             </button>
           </div>

@@ -1,23 +1,14 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { delAppoinFromRedux, deletAppoint } from '../../redux/appointments/appointActions';
 import css from '../../css/appoint.module.css';
 
-const Appoint = ({
-  appoint, doctors, delAppoinFromRedux, deletAppoint,
-}) => {
-  const {
-    id, doctor_id: doctorId, date_time: date,
-  } = appoint;
+const Appoint = ({ appoint, doctors, delAppoinFromRedux, deletAppoint, }) => {
+  const { id, doctor_id: doctorId, date_time: date,} = appoint;
   const doctor = doctors.find((doctor) => doctor.id === doctorId);
-  const {
-    name, title, recieving_hours: receiving, room,
-  } = doctor;
-  const dateDayOfWeek = (new Date(date)).toString().split(' ').slice(0, 4)
-    .join(' ');
-  const hour = (new Date(date)).toString().split(' ').slice(4, 5)
-    .join(' ');
+  const { name, title, recieving_hours: receiving, room, } = doctor;
+  const dateDayOfWeek = (new Date(date)).toString().split(' ').slice(0, 4).join(' ');
+  const hour = (new Date(date)).toString().split(' ').slice(4, 5).join(' ');
   const delitAppointment = (obj) => {
     delAppoinFromRedux(obj);
     deletAppoint(obj);
@@ -44,7 +35,6 @@ const Appoint = ({
         </span>
         <button type="button" onClick={() => delitAppointment({ id })}>Cancel</button>
       </div>
-
     </section>
   );
 };
@@ -54,18 +44,14 @@ Appoint.propTypes = {
   doctors: PropTypes.instanceOf(Array).isRequired,
   delAppoinFromRedux: PropTypes.func.isRequired,
   deletAppoint: PropTypes.func.isRequired,
-
 };
+
 const mapStateToProps = (state) => ({
   doctors: state.doctorReducer.doctors,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deletAppoint: (id) => {
-    dispatch(deletAppoint(id));
-  },
-  delAppoinFromRedux: (id) => {
-    dispatch(delAppoinFromRedux(id));
-  },
+  deletAppoint: (id) => { dispatch(deletAppoint(id)); },
+  delAppoinFromRedux: (id) => { dispatch(delAppoinFromRedux(id))},
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Appoint);

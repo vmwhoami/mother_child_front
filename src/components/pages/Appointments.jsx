@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+
 import Loading from '../component/Loading';
 import Layout from '../Layout';
-
 import Appoint from '../component/Appoint';
 import { getAllMyAppoint } from '../../redux/appointments/appointActions';
 
@@ -14,17 +14,13 @@ const Appointments = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (user.loggedIn && user.user) {
-      dispatch(getAllMyAppoint({ user: user.user.id }));
-    }
-  }, [dispatch, user.loggedIn, user.user]); // Also add 'user.user' as a dependency
+    if (user.loggedIn && user.user) { dispatch(getAllMyAppoint({ user: user.user.id }))}
+  }, [dispatch, user.loggedIn, user.user]);
  
-
-  if (!user.loggedIn) {
-    return <Navigate to="/login" />;
-  }
-console.log(state);
+  if (!user.loggedIn) return <Navigate to="/login" />;
+ 
   const { myapointments } = state;
+
   if (myapointments.length < 1) {
     return (
       <div className="container">
@@ -34,16 +30,12 @@ console.log(state);
       </div>
     );
   }
+
   return (
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <h2>My appointments</h2>
-        {myapointments.map((appoint) => (
-          <Appoint
-            key={appoint.id}
-            appoint={appoint}
-          />
-        ))}
+        { myapointments.map((appoint) => (<Appoint key={appoint.id} appoint={appoint}/> ))}
       </main>
     </Layout>
   );
