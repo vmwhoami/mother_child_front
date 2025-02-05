@@ -5,7 +5,6 @@ import Nav from './component/Nav';
 import { autoLogin } from '../redux/login/loginActions';
 import { getDoctors } from '../redux/doctors/doctorActions';
 import { ToggleNav } from '../redux/registration/registationActions';
-// import css from '../css/layout.module.css';
 
 const Layout = ({ children }) => {
   const dispatch = useDispatch();

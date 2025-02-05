@@ -10,29 +10,23 @@ const Doctors = () => {
   const navbar = useSelector((state) => state.registrationReducer.navbar);
   const state = useSelector((state) => state.doctorReducer);
   const { loading, filter } = state;
-  const selectDoc = (id) => {
-    dispatch(selectedDoc(id));
-  };
-  // console.log(state);
   const types = state.doctors.map((doc) => doc.title);
-  const handleFilterChange = (str) => {
-    dispatch(filterByType(str));
-  };
+  const selectDoc = (id) => { dispatch(selectedDoc(id))  };
+  const handleFilterChange = (str) => {  dispatch(filterByType(str)) };
+
   return (
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
+
         <h1>Our Doctors</h1>
-        <FilterDoctors
-          types={types}
-          handleFilterChange={handleFilterChange}
-        />
+        <FilterDoctors types={types} handleFilterChange={handleFilterChange} />
         <div className="doctors">
           {loading ? <Loading /> : state.doctors.filter((doc) => {
               if (filter === 'All') {
                 return doc;
               }
-              return doc.title === filter;
 
+              return doc.title === filter;
             }).map((doctor) => (<Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} /> ))}
         </div>
       </main>

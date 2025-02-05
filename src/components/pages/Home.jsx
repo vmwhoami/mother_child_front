@@ -3,13 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import Layout from '../Layout';
 import Doctor from '../component/Doctor';
 import Loading from '../component/Loading';
-import {
-  selectedDoc,
-  increment,
-  decrement,
-  setIndex,
-  zeroIndex,
-} from '../../redux/doctors/doctorActions';
+import { selectedDoc, increment, decrement, setIndex, zeroIndex } from '../../redux/doctors/doctorActions';
+ 
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,12 +17,15 @@ const Home = () => {
   const shuffled = [...doctors].sort(() => 0.5 - Math.random()).slice(0, 6);
  
   const selectDoc = (id) => { dispatch(selectedDoc(id)); };
+  
  
+
   useEffect(() => {
     const lastIndex = docLength - 1;
     if (index < 0) {
       dispatch(setIndex(lastIndex));
     }
+    
     if (index > lastIndex) {
       dispatch(zeroIndex());
     }
@@ -41,7 +39,7 @@ const Home = () => {
     <Layout>
       <main className={navbar ? 'container nomargin' : 'container'}>
         <h1>Doctors</h1>
-
+ 
         {loading ? <Loading /> : 
         (
           <div className="home">
@@ -50,7 +48,6 @@ const Home = () => {
             </button>
            
             {shuffled.map((doctor) => (
-              
               <Doctor key={doctor.id} doctor={doctor} selectDoc={selectDoc} docLength={docLength} index={index} />
             ))}
             
